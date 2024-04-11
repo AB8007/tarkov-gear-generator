@@ -1,0 +1,40 @@
+.settings-container-wrapper {
+    width: 680px;
+    border: 4px #2c2c2c solid;
+    display: flex;
+    flex-direction: column;
+    background-color: #343434;
+    box-sizing: border-box;
+}
+
+.settings-container-wrapper h2{
+    text-align: center;
+    color: whitesmoke;
+}
+
+.settings-container-top {
+    display: flex;
+    border: 2px #2c2c2c solid;
+    justify-content: space-between;
+    margin: 0 2em
+}
+
+.headwear-settings {
+    display: flex;
+    border: 1px red solid;
+
+}
+
+.settings-left {
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px red solid;
+}
+
+.checkbox-container {
+    position: relative;
+    color: whitesmoke;
+    width: 230px;
+    align-self: center;
+    margin: 0 0.5em;
+}
