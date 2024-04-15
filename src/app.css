@@ -1,33 +1,89 @@
+@font-face {
+    font-family: 'Light';
+    src: local('Bender'),
+        url(/src/fonts/bender/Jovanny\ Lemonad\ -\ Bender.otf) format('truetype')
+}
+
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Light';
+    margin: 0;
+
+}
+
+.body {
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-repeat: repeat;
+    height: 100%;
+    font-family: "Light";
+}
+
+.page {
+    display: flex;
+    justify-content: center;
 }
 
 .character-container {
     position: relative;
-    border: 1px rgb(0, 255, 115) solid;
     width: 680px;
     display: flex;
+    font-size: 15px;
 }
 
 .earpiece-headwear-facecover {
     position: absolute;
-    border: 1px rgb(4, 0, 255) solid;
     width: 678px;
-    height: 200px;
+    height: 182px;
+    display: flex;
+    top: 18px;
 }
 
 .bodyarmor {
     position: absolute;
-    top: 224px;
-    border: 1px rgb(248, 252, 4) solid;
     width: 678px;
     height: 182px;
+    display: flex;
+    flex-direction: row;
+    top: 224px;
 }
 
 .onsling-holster {
     position: absolute;
-    top: 433px;
-    border: 1px rgb(255, 1, 1) solid;
+    top: 432px;
     width: 678px;
     height: 182px;
+    display: flex;
+}
+
+.character-background {
+    width: auto;
+    
+}
+
+.main {
+    margin: 0;
+    width: auto;
+    justify-self: center;
+}
+
+.character-background-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8em;
+    margin-bottom: 8em;
+}
+
+.main-background-element {
+    display: flex;
+    justify-content: center;
+    width: 690px;
+    filter: drop-shadow(5px 5px 15px black);
+    height: auto;
+}
+
+.loading-icon-container {
+    background-color: #8D8D8D;
+    text-align: center;
+    height: auto;
+    font-size: 24px;
 }

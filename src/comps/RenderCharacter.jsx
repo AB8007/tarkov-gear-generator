@@ -1,9 +1,9 @@
 export const RenderCharacter = () => {
     return (
-        <>
-            <img src="\images\character2.png" >
+        <div>
+            <img src="\images\character2.png" className="character-background">
                 
             </img>
-        </>
+        </div>
     )
 }
