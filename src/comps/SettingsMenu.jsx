@@ -1,7 +1,7 @@
 import './css/SettingsMenu.css'
 import dice from '/images/dice.svg'
 
-export const SettingsMenu = ({ setHelmetCheckboxValue, setHeadphonesCheckboxValue, setHeadphoneBlockCheckboxValue, setArmorCheckboxValue, rollRandomPistol, rollRandomPrimary, rollRandomBodyarmor, rollRandomHeadwear, rollRandomHeadphones }) => {
+export const SettingsMenu = ({ setHelmetCheckboxValue, setHeadphonesCheckboxValue, setHeadphoneBlockCheckboxValue, setArmorCheckboxValue, rollRandomPistol, rollRandomPrimary, rollRandomBodyarmor, rollRandomHeadwear, rollRandomHeadphones, rollRandomMap }) => {
 
     const handleHelmetCheckbox = () => {
         setHelmetCheckboxValue(prevState => !prevState)
@@ -26,6 +26,7 @@ export const SettingsMenu = ({ setHelmetCheckboxValue, setHeadphonesCheckboxValu
             rollRandomBodyarmor()
             rollRandomHeadwear()
             rollRandomHeadphones()
+            rollRandomMap()
         }, 100)
         return
     }

@@ -239,6 +239,21 @@ const fetchChestRigs = async () => {
     }
 }
 
+const fetchMaps = async () => {
+    try {
+        const response = await axios.post(`${tarkovApi}`, {
+            query: `{
+                maps {
+                    name
+                }
+            }`
+        })
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export {
     fetchHeadwear, 
     fetchHeadphones, 
@@ -252,5 +267,6 @@ export {
     fetchMachineGuns,
     fetchDMRs,
     fetchBodyarmor,
-    fetchChestRigs
+    fetchChestRigs,
+    fetchMaps
 }

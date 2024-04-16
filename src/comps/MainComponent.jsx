@@ -19,14 +19,28 @@ import {
     fetchMachineGuns, 
     fetchDMRs,
     fetchBodyarmor,
-    fetchChestRigs
+    fetchChestRigs,
+    fetchMaps
 } from '../routes/api'
+
+import customs from '/images/maps/customs.png'
+import factory from '/images/maps/factory.png'
+import groundzero from '/images/maps/groundzero.png'
+import interchange from '/images/maps/interchange.png'
+import lighthouse from '/images/maps/lighthouse.png'
+import reserve from '/images/maps/reserve.png'
+import shoreline from '/images/maps/shoreline.png'
+import streets from '/images/maps/streets.png'
+import woods from '/images/maps/woods.png'
+import labs from '/images/maps/thelab.png'
+import { RenderMap } from './RenderMap';
 
 export const MainComponent = () => {
     const [loadingStatus, setLoadingStatus] = useState(true)
     const [loadingPrimaryWeaponsData, setLoadingPrimaryWeaponsData] = useState(true)
     const [loadingWearableData, setLoadingWearableData] = useState(true)
     const [loadingPistolsData, setLoadingPistolsData] = useState(true)
+    const [maps, setMaps] = useState([])
     const [headwear, setHeadwear] = useState([])
     const [headphones, setHeadphones] = useState([])
     const [bodyArmors, setBodyArmors] = useState([])
@@ -37,9 +51,10 @@ export const MainComponent = () => {
     const [helmetCheckboxValue, setHelmetCheckboxValue] = useState(false)
     const [headphoneBlockCheckboxValue, setHeadphoneBlockCheckboxValue] = useState(false)
     const [armorCheckboxValue, setArmorCheckboxValue] = useState(false)
-    const [searchValue, setSearchValue] = useState('')
     const [primaryWeapons, setPrimaryWeapons] = useState([])
 
+    //map state
+    const [mapImage, setMapImage] = useState('')
 
     //pistol states
     const [randomPistol, setRandomPistol] = useState(null)
@@ -70,6 +85,9 @@ export const MainComponent = () => {
     const [randomHeadphonesImage, setRandomHeadphonesImage] = useState('')
     const [headphonesNameToDisplay, setHeadphonesNameToDisplay] = useState('')
     
+    //maps states
+    const [randomMap, setRandomMap] = useState(null)
+    const [randomMapName, setRandomMapName] = useState('')
 
     useEffect(() => {
         const fetchWearableData = async () => {
@@ -115,7 +133,19 @@ export const MainComponent = () => {
             pistolsAndRevolvers.push(...getHandgunRevolvers)
     
             setPistols(pistolsAndRevolvers)
+            const mapsData = await fetchMaps()
+            console.log(mapsData)
+
+            const filterDuplicates = mapsData.data.maps.filter(map => {
+              return map.name !== 'Night Factory' && map.name !== 'Ground Zero 21+'
+            })
+
+            setMaps(filterDuplicates)
             setLoadingPistolsData(false)
+
+
+
+
           } catch (error) {
             console.log('error:', error)
           }
@@ -179,7 +209,40 @@ export const MainComponent = () => {
     const randomIndex = (array) => {
         return Math.floor(Math.random() * array.length)
     }
+
+
+
+    const mapThumbnails = [
+        { name: 'customs', image: customs },
+        { name: 'factory', image: factory },
+        { name: 'ground zero', image: groundzero },
+        { name: 'interchange', image: interchange },
+        { name: 'lighthouse', image: lighthouse },
+        { name: 'reserve', image: reserve },
+        { name: 'shoreline', image: shoreline },
+        { name: 'streets of tarkov', image: streets },
+        { name: 'woods', image: woods },
+        { name: 'the lab', image: labs }
+    ]
+  
     // Functions for randomizing an item from each category
+
+    const rollRandomMap = () => {
+      const randomMap = maps[randomIndex(maps)]
+      setRandomMap(randomMap.name)
+      setRandomMapName(randomMap.name)
+      console.log(randomMap.name)
+    }
+
+    useEffect(() => {
+      const imageToDisplay = mapThumbnails.find(map => map.name.includes(randomMapName.toLowerCase()))
+      if (imageToDisplay) {
+          setMapImage(imageToDisplay.image);
+      } else {
+          console.log(`No image found for map: ${randomMapName}`)
+      }
+  }, [randomMapName, mapThumbnails])
+
     const rollRandomPistol = () => {
         const randomItem = pistols[randomIndex(pistols)]
         setRandomPistol(randomItem.shortName)
@@ -313,6 +376,7 @@ export const MainComponent = () => {
         rollRandomBodyarmor={rollRandomBodyarmor}
         rollRandomHeadwear={rollRandomHeadwear}
         rollRandomHeadphones={rollRandomHeadphones}
+        rollRandomMap={rollRandomMap}
       ></SettingsMenu>
       <div className='character-container'>
         {isLoading ? <div className='loading-icon-container'>
@@ -363,6 +427,14 @@ export const MainComponent = () => {
               primaryNameToDisplay={primaryNameToDisplay}
               rollRandomPrimary={rollRandomPrimary}
             />
+          </div>
+          <div className='map'>
+            <RenderMap
+              randomMap={randomMap}
+              randomMapName={randomMapName}
+              mapImage={mapImage}
+              rollRandomMap={rollRandomMap}
+            ></RenderMap>
           </div>
           </div>
       }

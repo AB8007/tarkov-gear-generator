@@ -7,7 +7,7 @@ export const Titlebar = () => {
             <div className='nav-container'>
             <div className='logo-wrapper'>
                 <div className='logo-container'>
-                    <Link className='logo-text' to='/'>Random Gear Generator</Link>
+                    <Link className='logo-text' to='/'>Random Raid Generator</Link>
                 </div>
                 </div>
                 <div className='link-wrapper'>

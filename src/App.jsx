@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import '../src/app.css'
 import { MainComponent } from './comps/MainComponent.jsx';
 import { Titlebar } from './comps/Titlebar.jsx';
-import { Footer } from './comps/Footer.jsx';
 import { Info } from './pages/Info.jsx';
 import { FAQ } from './pages/FAQ.jsx';
 import './fonts/bender/Jovanny Lemonad - Bender.otf'

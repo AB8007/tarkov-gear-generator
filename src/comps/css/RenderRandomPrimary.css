@@ -42,7 +42,8 @@
 
 .primary-button {
     width: 395px;
-    background-color:#353935;
+    background: rgb(38,38,38);
+    background: linear-gradient(180deg, rgba(38,38,38,1) 6%, rgba(22,23,22,1) 81%, rgba(38,38,38,1) 100%);
     color: #f5f5f5;
     position: relative;
     height: 26px;
