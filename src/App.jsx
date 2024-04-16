@@ -5,7 +5,7 @@ import { MainComponent } from './comps/MainComponent.jsx';
 import { Titlebar } from './comps/Titlebar.jsx';
 import { Info } from './pages/Info.jsx';
 import { FAQ } from './pages/FAQ.jsx';
-import './fonts/bender/Jovanny Lemonad - Bender.otf'
+import './fonts/bender/bender.otf'
 
 function App() {
   return (

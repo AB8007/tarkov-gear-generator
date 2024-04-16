@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Light';
     src: local('Bender'),
-        url(/src/fonts/bender/Jovanny\ Lemonad\ -\ Bender.otf) format('truetype')
+        url('src/fonts/bender/bender.otf') format('truetype')
 }
 
 * {
