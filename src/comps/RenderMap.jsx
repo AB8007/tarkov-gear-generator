@@ -24,7 +24,7 @@ export const RenderMap = ({ randomMap, randomMapName, mapImage, rollRandomMap}) 
                     </div>
                 </div>
                 :
-                <div>A Random Location</div>
+                <div className='no-map-to-show'>A Random Location</div>
             }
         </div>
     )

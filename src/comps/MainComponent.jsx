@@ -134,7 +134,6 @@ export const MainComponent = () => {
     
             setPistols(pistolsAndRevolvers)
             const mapsData = await fetchMaps()
-            console.log(mapsData)
 
             const filterDuplicates = mapsData.data.maps.filter(map => {
               return map.name !== 'Night Factory' && map.name !== 'Ground Zero 21+'
@@ -231,7 +230,6 @@ export const MainComponent = () => {
       const randomMap = maps[randomIndex(maps)]
       setRandomMap(randomMap.name)
       setRandomMapName(randomMap.name)
-      console.log(randomMap.name)
     }
 
     useEffect(() => {
@@ -307,7 +305,6 @@ export const MainComponent = () => {
       })
 
       if (helmetCheckboxValue === true && headphoneBlockCheckboxValue === false) {
-          console.log('Exclude unarmored headwear is selected')
           const randomHelmet = helmets[randomIndex(helmets)]
 
           setRandomHeadwear(randomHelmet.name)
@@ -316,7 +313,6 @@ export const MainComponent = () => {
           return
 
       } else if (helmetCheckboxValue === false && headphoneBlockCheckboxValue === true) {
-          console.log('Ensure headset compatibility is selected')
           const randomCompatibleHeadwear = compatibleHeadwear[randomIndex(compatibleHeadwear)]
 
           setRandomHeadwear(randomCompatibleHeadwear.name)
@@ -325,7 +321,6 @@ export const MainComponent = () => {
           return
 
       }   else if (headphoneBlockCheckboxValue === true && helmetCheckboxValue === true) {
-          console.log('both selected')
           const randomCompatibleHelmet = compatibleHelmets[randomIndex(compatibleHelmets)]
 
           setRandomHeadwear(randomCompatibleHelmet.name)
@@ -333,7 +328,6 @@ export const MainComponent = () => {
           setHeadwearNameToDisplay(randomCompatibleHelmet.shortName)
           return
       }
-      console.log('none selected')
       const randomItem = headwear[randomIndex(headwear)]
 
       setRandomHeadwear(`${randomItem.name}`)
