@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    left: 492px;
+
 }
 
 .pistol-icon-container {
@@ -10,19 +10,17 @@
     height: 156px; 
     border: 2px #8D8D8D solid;
     position: relative;
-    backdrop-filter: blur(6px);
     box-sizing: border-box;
     top: 2px;
     left: 2px;
     overflow: hidden;
+    backdrop-filter: blur(6px);
 }
 
 .pistol-icon {
     height: 50%;
     margin-top: 36px;
     object-fit: cover;
-    backdrop-filter: blur(6px);
-
 }
 
 .pistol-button {

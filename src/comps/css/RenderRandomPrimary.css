@@ -2,7 +2,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    left: -130px;
 }
 
 .primary-name-container {
@@ -16,7 +15,6 @@
     box-sizing: border-box;
     left: 122px;
     top: -12px;
-    
 }
 
 .primary-icon-container {
@@ -24,19 +22,17 @@
     height: 156px; 
     border: 2px rgb(141, 141, 141) solid;
     position: relative;
-    backdrop-filter: blur(6px);
     box-sizing: border-box;
     left: 2px;
     top: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
 }
 
 .primary-icon {
-    object-fit: cover;
-    backdrop-filter: blur(6px);
-    overflow: visible;
     width: 100%;
 }
 
@@ -48,7 +44,6 @@
     position: relative;
     height: 26px;
     cursor: pointer;
-    z-index: 1000;
     font-size: 14px;
 }
 

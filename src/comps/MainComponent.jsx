@@ -4,6 +4,7 @@ import { RenderRandomHeadphones } from './RenderRandomHeadphones'
 import { RenderRandomHeadwear } from './RenderRandomHeadwear'
 import { RenderRandomPistol } from './RenderRandomPistol'
 import { RenderRandomPrimary } from './RenderRandomPrimary'
+import { RenderRandomChestRig } from './RenderRandomChestRig'
 import { RenderCharacter } from './RenderCharacter'
 import { SettingsMenu } from './SettingsMenu'
 import {
@@ -401,20 +402,26 @@ export const MainComponent = () => {
               randomBodyArmorImage={randomBodyArmorImage}
               armorNameToDisplay={armorNameToDisplay}
 
-              randomChestRig={randomChestRig}
-              randomChestRigImage={randomChestRigImage}
-              chestRigNameToDisplay={chestRigNameToDisplay}
+
 
               rollRandomBodyarmor={rollRandomBodyarmor}
             />
+            <RenderRandomChestRig
+              randomChestRig={randomChestRig}
+              randomChestRigImage={randomChestRigImage}
+              chestRigNameToDisplay={chestRigNameToDisplay}
+            >
+            </RenderRandomChestRig>
           </div>
-          <div className='onsling-holster'>
+          <div className='holster'>
             <RenderRandomPistol 
               randomPistol={randomPistol}
               randomPistolImage={randomPistolImage}
               pistolNameToDisplay={pistolNameToDisplay}
               rollRandomPistol={rollRandomPistol}
               />
+            </div>
+            <div className='onsling'>
             <RenderRandomPrimary
               randomPrimary={randomPrimary}
               randomPrimaryImage={randomPrimaryImage}

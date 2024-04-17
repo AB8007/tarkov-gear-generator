@@ -14,7 +14,8 @@
     background-image: url('/images/background.png');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    min-height: 100vh;
+    min-width: auto;
     font-family: "Light";
     background-color: rgb(14,16,14);
     background-color: linear-gradient(90deg, rgba(14,16,14,1) 18%, rgba(22,24,18,1) 47%, rgba(20,21,17,1) 100%);
@@ -25,7 +26,8 @@
 .page {
     display: flex;
     justify-content: center;
-    
+
+
 }
 
 .character-container {
@@ -40,7 +42,8 @@
     width: 678px;
     height: 182px;
     display: flex;
-    top: 18px;
+    margin-top: -844px;
+    z-index: 1;
 }
 
 .bodyarmor {
@@ -49,15 +52,26 @@
     height: 182px;
     display: flex;
     flex-direction: row;
-    top: 224px;
+    margin-top: -640px;
+    z-index: 2;
 }
 
-.onsling-holster {
+.holster {
     position: absolute;
     top: 432px;
-    width: 678px;
-    height: 182px;
-    display: flex;
+    width: 185px;
+    margin-left: 490px;
+    max-height: 182px;
+    z-index: 1;
+}
+
+.onsling {
+    position: absolute;
+    top: 432px;
+    width: 394px;
+    margin-left: 30px;
+    max-height: 182px;
+    z-index: 1;
 }
 
 .map {
@@ -67,10 +81,12 @@
     height: 182px;
     top: 643px;
     display: flex;
+    z-index: 0;
 }
 
 .character-background {
     width: auto;
+    z-index: 1;
 }
 
 .main {
@@ -82,8 +98,8 @@
 .character-background-container {
     display: flex;
     flex-direction: column;
-    margin-top: 8em;
-    margin-bottom: 4em;
+    margin-top: 3.5em;
+    margin-bottom: 2em;
 }
 
 .main-background-element {
