@@ -1,6 +1,20 @@
+import { useEffect, useState } from 'react'
 import './css/RenderRandomHeadwear.css'
 
 export const RenderRandomHeadwear = ({randomHeadwear, randomHeadwearImage, headwearNameToDisplay, rollRandomHeadwear }) => {
+
+    const [imageLoaded, setImageLoaded] = useState(false)
+
+    useEffect(() => {
+        setImageLoaded(false)
+        const img = new Image()
+        img.onload = () => {
+            setTimeout(() => {
+                setImageLoaded(true)
+            }, 1000)
+        }
+        img.src = randomHeadwearImage
+    }, [randomHeadwearImage])
 
     return (
         <div className='headwear-container'>
@@ -11,12 +25,20 @@ export const RenderRandomHeadwear = ({randomHeadwear, randomHeadwearImage, headw
             ?
             <div>
                 <div className='helmet-icon-container'>
-                    <img className='helmet-icon' src={randomHeadwearImage} width={100}></img>
+                {!imageLoaded ? (
+                        <div className='loading-animation'></div>
+                        ) : (
+                            <img className='helmet-icon' src={randomHeadwearImage} width={100}></img>
+                        )}
                 </div>
+                {!imageLoaded ? (
+                <div className='headwear-name-container'>Randomizing...</div>
+            ) : (
                 <div className='headwear-name-container'>{headwearNameToDisplay}</div>
+            )}
             </div>
             :
-            <div className='no-headwear-to-show'>A Random Headwear</div>
+            <div className='no-headwear-to-show'>No Headwear</div>
         }
         </div>
     )

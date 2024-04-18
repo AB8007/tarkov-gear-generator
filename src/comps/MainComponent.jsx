@@ -35,9 +35,10 @@ import streets from '/images/maps/streets.png'
 import woods from '/images/maps/woods.png'
 import labs from '/images/maps/thelab.png'
 import { RenderMap } from './RenderMap';
+import { all } from 'axios';
+
 
 export const MainComponent = () => {
-    const [loadingStatus, setLoadingStatus] = useState(true)
     const [loadingPrimaryWeaponsData, setLoadingPrimaryWeaponsData] = useState(true)
     const [loadingWearableData, setLoadingWearableData] = useState(true)
     const [loadingPistolsData, setLoadingPistolsData] = useState(true)
@@ -200,17 +201,12 @@ export const MainComponent = () => {
         fetchPrimaryWeaponsData()
       }, [])
         
-
     const isLoading = loadingPistolsData || loadingPrimaryWeaponsData || loadingWearableData
       
-    
-
     //random index helper
     const randomIndex = (array) => {
         return Math.floor(Math.random() * array.length)
     }
-
-
 
     const mapThumbnails = [
         { name: 'customs', image: customs },
@@ -261,7 +257,6 @@ export const MainComponent = () => {
     }
 
     const rollRandomBodyarmor = () => {
-        
         const armorsAndArmoredRigs = [...bodyArmors]
 
         armorsAndArmoredRigs.push(...armoredRigs)
@@ -337,7 +332,6 @@ export const MainComponent = () => {
   }
 
   const rollRandomHeadphones = () => {
-
     if (headphonesCheckboxValue) {
         const normalHeadphones = headphones.filter(item => !item.name.includes("RAC"))
         const randomHeadphones = normalHeadphones[randomIndex(normalHeadphones)]
@@ -353,8 +347,6 @@ export const MainComponent = () => {
     setRandomHeadphonesImage(randomItem.image512pxLink)
     setHeadphonesNameToDisplay(randomItem.shortName)
   }
-
-
 
     return (
       <div className='main-background-element'>
@@ -381,7 +373,8 @@ export const MainComponent = () => {
           :
           <div>
           <RenderCharacter></RenderCharacter>
-          <div className='earpiece-headwear-facecover'>
+            <div>
+            <div className='earpiece-headwear-facecover'>
             <RenderRandomHeadwear
               randomHeadwear={randomHeadwear}
               randomHeadwearImage={randomHeadwearImage}
@@ -392,7 +385,6 @@ export const MainComponent = () => {
               randomHeadphones={randomHeadphones}
               randomHeadphonesImage={randomHeadphonesImage}
               headphonesNameToDisplay={headphonesNameToDisplay}
-
               rollRandomHeadphones={rollRandomHeadphones}
             />
           </div>
@@ -401,9 +393,6 @@ export const MainComponent = () => {
               randomBodyArmor={randomBodyArmor}
               randomBodyArmorImage={randomBodyArmorImage}
               armorNameToDisplay={armorNameToDisplay}
-
-
-
               rollRandomBodyarmor={rollRandomBodyarmor}
             />
             <RenderRandomChestRig
@@ -425,8 +414,10 @@ export const MainComponent = () => {
             <RenderRandomPrimary
               randomPrimary={randomPrimary}
               randomPrimaryImage={randomPrimaryImage}
+              setRandomPrimaryImage={setRandomPrimaryImage}
               primaryNameToDisplay={primaryNameToDisplay}
               rollRandomPrimary={rollRandomPrimary}
+
             />
           </div>
           <div className='map'>
@@ -437,6 +428,7 @@ export const MainComponent = () => {
               rollRandomMap={rollRandomMap}
             ></RenderMap>
           </div>
+            </div>
           </div>
       }
         </div>

@@ -1,7 +1,8 @@
 import './css/SettingsMenu.css'
 import dice from '/images/dice.svg'
+import { useState } from 'react'
 
-export const SettingsMenu = ({ setHelmetCheckboxValue, setHeadphonesCheckboxValue, setHeadphoneBlockCheckboxValue, setArmorCheckboxValue, rollRandomPistol, rollRandomPrimary, rollRandomBodyarmor, rollRandomHeadwear, rollRandomHeadphones, rollRandomMap }) => {
+export const SettingsMenu = ({ setHelmetCheckboxValue, setHeadphonesCheckboxValue, setHeadphoneBlockCheckboxValue, setArmorCheckboxValue, rollRandomPistol, rollRandomPrimary, rollRandomBodyarmor, rollRandomHeadwear, rollRandomHeadphones, rollRandomMap}) => {
 
     const handleHelmetCheckbox = () => {
         setHelmetCheckboxValue(prevState => !prevState)

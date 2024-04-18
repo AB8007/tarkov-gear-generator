@@ -18,6 +18,9 @@
     left: 263px;
     box-sizing: border-box;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bodyarmor-button-container {
@@ -25,10 +28,10 @@
 }
 
 .bodyarmor-icon {
-    height: 100%;
+    width: fit-content;
+    max-height: 100%;
     backdrop-filter: blur(6px);
     overflow: hidden;
-    max-width: fit-content;
 }
 
 .bodyarmor-button {
@@ -74,6 +77,7 @@
     top: 3px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .chestrig-name-container {
@@ -113,10 +117,10 @@
     top: 3px;
     left: 331px;
     display: flex;
-    text-align: center;
+    justify-content: center;
     align-items: center;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #ff0000;
+    -webkit-text-stroke-color: #f5f5f5;
     padding: 1em;
 }
 
