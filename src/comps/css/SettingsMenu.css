@@ -5,12 +5,13 @@
     background: rgb(14,16,14);
     background: linear-gradient(90deg, rgba(14,16,14,1) 18%, rgba(22,24,18,1) 47%, rgba(20,21,17,1) 100%);
     box-sizing: border-box;
+    margin-top: 0.5vh;
 }
 
 
 
 .settings-container-wrapper h2 {
-    padding: 0.5em 0;
+    padding: 0.4vh;
 }
 
 .settings-container-wrapper h2{

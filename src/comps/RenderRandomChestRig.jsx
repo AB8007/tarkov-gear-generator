@@ -1,6 +1,20 @@
+import { useEffect, useState } from 'react'
 import './css/RenderRandomBodyArmor.css'
 
-export const RenderRandomChestRig = ({ randomChestRig, randomChestRigImage, chestRigNameToDisplay}) => {
+export const RenderRandomChestRig = ({ randomChestRig, randomChestRigImage, chestRigNameToDisplay }) => {
+    const [imageLoaded, setImageLoaded] = useState(false)
+
+    useEffect(() => {
+        setImageLoaded(false)
+        const img = new Image()
+        img.onload = () => {
+            setTimeout(() => {
+                setImageLoaded(true)
+            }, 1000)
+        }
+        img.src = randomChestRigImage
+    }, [randomChestRigImage])
+
     return (
         <div>
             <div className="chestrig-title">Chest rig</div>
@@ -8,14 +22,21 @@ export const RenderRandomChestRig = ({ randomChestRig, randomChestRigImage, ches
                 ? 
                 <div>
                     <div className="chestrig-icon-container">
-                        <img className='chestrig-icon' src={randomChestRigImage}></img>
+                        {!imageLoaded ? (
+                        <div className='loading-animation'></div>
+                        ) : (
+                            <img className='chestrig-icon' src={randomChestRigImage}></img>
+                        )}
                     </div>
-                    <div className="chestrig-name-container">{chestRigNameToDisplay}</div>
+                    {!imageLoaded ? (
+                            <div className="chestrig-name-container">Randomizing...</div>
+                        ) : (
+                            <div className="chestrig-name-container">{chestRigNameToDisplay}</div>
+                        )}
                 </div>
                 : 
-                <div className="armoredrig-chestrig-info">Chest Rigs cannot be worn with Armored Rigs</div>
+                <div className="armoredrig-chestrig-info">No Chest Rig</div>
             }
-            <div className='no-chestrig-to-show'>No Chest Rig</div>
         </div>
     )
 }
