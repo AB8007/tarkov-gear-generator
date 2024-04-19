@@ -1,8 +1,9 @@
 .pistol-container {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
-    left: 492px;
+    left: 490px;
+    top: 432px;
 }
 
 .pistol-icon-container {
@@ -10,19 +11,19 @@
     height: 156px; 
     border: 2px #8D8D8D solid;
     position: relative;
-    backdrop-filter: blur(6px);
     box-sizing: border-box;
     top: 2px;
     left: 2px;
     overflow: hidden;
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pistol-icon {
     height: 50%;
-    margin-top: 36px;
     object-fit: cover;
-    backdrop-filter: blur(6px);
-
 }
 
 .pistol-button {
@@ -54,15 +55,39 @@
     height: 156px; 
     border: 2px #8D8D8D solid;
     position: relative;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(6px);
     box-sizing: border-box;
     top: 2px;
     left: 2px;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
     display: flex;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #f5f5f5;
     align-items: center;
     padding: 1em;
+}
+
+@media screen and (max-width: 1080px) {
+    .pistol-icon-container, .no-pistol-to-show {
+        width: 120px;
+        height: 120px;
+        top: -106px;
+        left: -120px;
+    }
+
+    .pistol-button {
+        width: 126px;
+        height: 20px;
+        left: -123px;
+        top: -108px;
+        font-size: 10.5px;
+    }
+
+    .pistol-name-container {
+        width: 100px;
+        top: -116px;
+        left: -110px;
+    }
 }
 

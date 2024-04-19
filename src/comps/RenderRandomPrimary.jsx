@@ -1,7 +1,19 @@
+import { useEffect, useState } from 'react'
 import './css/RenderRandomPrimary.css'
 
-export const RenderRandomPrimary = ({randomPrimary, randomPrimaryImage, primaryNameToDisplay, rollRandomPrimary}) => {
+export const RenderRandomPrimary = ({randomPrimary, randomPrimaryImage, primaryNameToDisplay, rollRandomPrimary }) => {
+    const [imageLoaded, setImageLoaded] = useState(false)
 
+    useEffect(() => {
+        setImageLoaded(false)
+        const img = new Image()
+        img.onload = () => {
+            setTimeout(() => {
+                setImageLoaded(true)
+            }, 1000)
+        }
+        img.src = randomPrimaryImage
+    }, [randomPrimaryImage])
 
     return (
         <div className='primary-container'>
@@ -10,13 +22,21 @@ export const RenderRandomPrimary = ({randomPrimary, randomPrimaryImage, primaryN
             </div>
             {randomPrimary 
                 ?
-            <div>
+                <div>
                 <div className='primary-icon-container'>
-                    <img className='primary-icon' src={randomPrimaryImage}></img>
+                {!imageLoaded ? (
+                    <div className='loading-animation' ></div>
+                    ) : (
+                    <img className='primary-icon' src={randomPrimaryImage}></img>  
+                    )}
+                 </div>
+                {!imageLoaded ? (
+                    <div className='primary-name-container'>Randomizing...</div>
+                ) : (
+                    <div className='primary-name-container'>{primaryNameToDisplay}</div>
+                )}
                 </div>
-                <div className='primary-name-container'>{primaryNameToDisplay}</div>
-            </div>
-                : <div className='no-primary-to-show'>A Random Primary Weapon</div>
+                : <div className='no-primary-to-show'>No Primary Weapon</div>
             }
         </div>
     )
