@@ -3,6 +3,20 @@ import './css/RenderRandomPrimary.css'
 
 export const RenderRandomPrimary = ({randomPrimary, randomPrimaryImage, primaryNameToDisplay, rollRandomPrimary }) => {
     const [imageLoaded, setImageLoaded] = useState(false)
+<<<<<<< HEAD
+=======
+
+    useEffect(() => {
+        setImageLoaded(false)
+        const img = new Image()
+        img.onload = () => {
+            setTimeout(() => {
+                setImageLoaded(true)
+            }, 1000)
+        }
+        img.src = randomPrimaryImage
+    }, [randomPrimaryImage])
+>>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 
     useEffect(() => {
         setImageLoaded(false)
@@ -29,6 +43,7 @@ export const RenderRandomPrimary = ({randomPrimary, randomPrimaryImage, primaryN
                     ) : (
                     <img className='primary-icon' src={randomPrimaryImage}></img>  
                     )}
+<<<<<<< HEAD
                  </div>
                 {!imageLoaded ? (
                     <div className='primary-name-container'>Randomizing...</div>
@@ -36,6 +51,15 @@ export const RenderRandomPrimary = ({randomPrimary, randomPrimaryImage, primaryN
                     <div className='primary-name-container'>{primaryNameToDisplay}</div>
                 )}
                 </div>
+=======
+                </div>
+                {!imageLoaded ? (
+                    <div className='primary-name-container'>Randomizing...</div>
+                ) : (
+                    <div className='primary-name-container'>{primaryNameToDisplay}</div>
+                )}
+            </div>
+>>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
                 : <div className='no-primary-to-show'>No Primary Weapon</div>
             }
         </div>

@@ -71,7 +71,7 @@
     -webkit-text-stroke-color: #f5f5f5;
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1080px) {
     .random-map-container, .no-map-to-show {
         width: 466px;
         height: 140px;

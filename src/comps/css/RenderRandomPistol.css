@@ -2,8 +2,12 @@
     position: absolute;
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     left: 490px;
     top: 432px;
+=======
+
+>>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .pistol-icon-container {
@@ -68,7 +72,7 @@
     padding: 1em;
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1080px) {
     .pistol-icon-container, .no-pistol-to-show {
         width: 120px;
         height: 120px;

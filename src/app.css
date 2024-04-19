@@ -39,21 +39,71 @@
 
 .backpack {
     position: absolute;
+<<<<<<< HEAD
     top: 400px;
     height: 200px;
     width: 200px;
     left: 200px;
     border: 1px solid red;
     background-color: red;
+=======
+    width: 678px;
+    height: 182px;
+    display: flex;
+    margin-top: -844px;
+    z-index: 1;
+>>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .character-wrapper {
     position: absolute;
+<<<<<<< HEAD
     width: 680px;
     height: 860px;
     background-image: url('/images/character2.png');
     margin-top: 16em;
     box-shadow: 5px 5px 15px black;
+=======
+    width: 678px;
+    height: 182px;
+    display: flex;
+    flex-direction: row;
+    margin-top: -640px;
+    z-index: 2;
+}
+
+.holster {
+    position: absolute;
+    top: 432px;
+    width: 185px;
+    margin-left: 490px;
+    max-height: 182px;
+    z-index: 1;
+}
+
+.onsling {
+    position: absolute;
+    top: 432px;
+    width: 394px;
+    margin-left: 30px;
+    max-height: 182px;
+    z-index: 1;
+}
+
+.map {
+    position: absolute;
+    width: 420px;
+    left: 33px;
+    height: 182px;
+    top: 643px;
+    display: flex;
+    z-index: 0;
+}
+
+.character-background {
+    width: auto;
+    z-index: 1;
+>>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .main {
@@ -99,8 +149,9 @@
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+<<<<<<< HEAD
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1080px) {
    
     .character-wrapper {
         width: 510px;
@@ -120,3 +171,5 @@
     }
 
 }
+=======
+>>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678

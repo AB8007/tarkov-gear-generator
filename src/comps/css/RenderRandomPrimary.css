@@ -2,8 +2,11 @@
     position: absolute;
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     left: 30px;
     top: 432px;
+=======
+>>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .primary-name-container {
@@ -32,10 +35,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
 }
 
 .primary-icon {
+<<<<<<< HEAD
     width:  100%;
+=======
+    width: 100%;
+>>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .primary-button {
@@ -65,7 +74,7 @@
     -webkit-text-stroke-color: #f5f5f5;
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1080px) {
 
     .primary-container {
         top: 324px;
