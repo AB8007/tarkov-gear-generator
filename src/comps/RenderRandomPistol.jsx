@@ -16,7 +16,7 @@ export const RenderRandomPistol = ({ randomPistol, randomPistolImage, pistolName
     }, [randomPistolImage])
 
     return (
-        <div className="pistol-container">
+        <div className='pistol-container'>
             <div className="pistol-button-container">
                 <button className='pistol-button' onClick={() => rollRandomPistol()}>Randomize Sidearm</button>
             </div>

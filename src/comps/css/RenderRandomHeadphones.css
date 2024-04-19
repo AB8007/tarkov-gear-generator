@@ -66,3 +66,32 @@
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #f5f5f5;
 }
+
+@media screen and (max-width: 1080px) {
+    .headphones-container {
+        width: 120px;
+        height: 135px;
+        left: -122px;
+    }
+
+    .headphones-icon-container, .no-headphones-to-show {
+        width: 120px;
+        height: 115px;
+    }
+
+    .headphones-button {
+        width: 124px;
+        height: 20px;
+        font-size: 10.5px;
+        left: 1px;
+    }
+
+    .headphones-icon {
+        width: 75%;
+        height: 75%;
+    }
+
+    .headphones-name-container {
+        width: 100px;
+    }
+}

@@ -11,6 +11,7 @@ function App() {
   return (
     <div className='body'>
     <BrowserRouter>
+    <Titlebar/>
     <div className='page'>
       <div className='main'>
         <Routes>

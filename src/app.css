@@ -37,56 +37,33 @@
     margin-top: 0.5vh;
 }
 
-.earpiece-headwear-facecover {
-    position: absolute;
-    width: 678px;
-    height: 182px;
-    display: flex;
-    margin-top: -844px;
-    z-index: 1;
-}
 
-.bodyarmor {
+.backpack {
     position: absolute;
-    width: 678px;
-    height: 182px;
-    display: flex;
-    flex-direction: row;
-    margin-top: -640px;
-    z-index: 2;
-}
-
-.holster {
-    position: absolute;
-    top: 432px;
-    width: 185px;
-    margin-left: 490px;
-    max-height: 182px;
-    z-index: 1;
-}
-
-.onsling {
-    position: absolute;
-    top: 432px;
-    width: 394px;
-    margin-left: 30px;
-    max-height: 182px;
-    z-index: 1;
+    top: 400px;
+    height: 200px;
+    width: 200px;
+    left: 200px;
+    border: 1px solid red;
+    background-color: red;
 }
 
 .map {
     position: absolute;
-    width: 420px;
+    width: 620px;
     left: 33px;
     height: 182px;
-    top: 643px;
+    top: 826px;
     display: flex;
-    z-index: 0;
 }
 
-.character-background {
-    width: auto;
-    z-index: 1;
+.character-wrapper {
+    position: absolute;
+    border: 1px solid green;
+    width: 680px;
+    height: 860px;
+    background-image: url('/images/character2.png');
+    margin-top: 12em;
 }
 
 .main {
@@ -131,4 +108,68 @@
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 1080px) {
+   
+    .loading-animation {
+        height: 30px;
+        width: 30px;
+    }
+
+    .character-container {
+        display: flex;
+        position: relative;
+        width: 510px;
+        position: relative;
+        display: flex;
+        font-size: 12px;
+        margin-top: 0.5vh;
+    }
+
+    .character-background {
+        width: auto;
+        height: 645px;
+        justify-content: center;
+        width: auto;
+    }
+
+    .earpiece-headwear-facecover {
+        position: absolute;
+        height: 135px;
+        width: 467px;
+        top: 856px;
+        left: 22px;
+        font-size: 10px;
+        display: flex;
+    }
+
+    .bodyarmor {
+        width: 467px;
+        height: 135px;
+        top: 809px;
+        left: 22px;
+        font-size: 10px;
+    }
+
+    .onsling {
+        width: 324px;
+        height: 135px;
+        top: 325px;
+        left: -8px;
+        font-size: 10px;
+    }
+
+    .holster {
+        width: 138px;
+        left: -120px;
+        top: 325px;
+        font-size: 10px;
+    }
+    .map {
+        width: 462px;
+        left: 24px;
+        height: 136px;
+        top: 482px;
+    }
 }

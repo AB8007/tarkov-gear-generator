@@ -15,7 +15,6 @@ export const RenderRandomPrimary = ({randomPrimary, randomPrimaryImage, primaryN
         img.src = randomPrimaryImage
     }, [randomPrimaryImage])
 
-
     return (
         <div className='primary-container'>
             <div className='primary-button-container'>
@@ -23,20 +22,20 @@ export const RenderRandomPrimary = ({randomPrimary, randomPrimaryImage, primaryN
             </div>
             {randomPrimary 
                 ?
-            <div>
+                <div>
                 <div className='primary-icon-container'>
                 {!imageLoaded ? (
                     <div className='loading-animation' ></div>
                     ) : (
                     <img className='primary-icon' src={randomPrimaryImage}></img>  
                     )}
-                </div>
+                 </div>
                 {!imageLoaded ? (
                     <div className='primary-name-container'>Randomizing...</div>
                 ) : (
                     <div className='primary-name-container'>{primaryNameToDisplay}</div>
                 )}
-            </div>
+                </div>
                 : <div className='no-primary-to-show'>No Primary Weapon</div>
             }
         </div>

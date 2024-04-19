@@ -5,10 +5,8 @@
     background: rgb(14,16,14);
     background: linear-gradient(90deg, rgba(14,16,14,1) 18%, rgba(22,24,18,1) 47%, rgba(20,21,17,1) 100%);
     box-sizing: border-box;
-    margin-top: 0.5vh;
+    margin-top: 2vh;
 }
-
-
 
 .settings-container-wrapper h2 {
     padding: 0.4vh;
@@ -22,7 +20,7 @@
 .settings-container-top {
     display: flex;
     justify-content: space-between;
-    margin: 0 2em
+    margin: 0 2em;
 }
 
 .headwear-settings {
@@ -87,4 +85,31 @@
     filter: invert(100);
     padding-left: 1em;
     top: 1px;
+}
+
+@media screen and (max-width: 1080px) {
+    .settings-container-wrapper {
+        width: 510px;
+        height: 120px;
+    }
+
+    .settings-container-wrapper h2 {
+        font-size: 15px;
+        padding: 0.3vh;
+    }
+
+    .checkbox-container {
+        width: 202px;
+        font-size: 12px;
+    }
+
+    .randomize-all-button {
+        height: 24px;
+        font-size: 12px;
+        padding: 1.1em;
+    }
+
+    .dice {
+        height: 22.5px;
+    }
 }

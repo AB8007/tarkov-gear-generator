@@ -25,15 +25,15 @@
     box-sizing: border-box;
     left: 2px;
     top: 2px;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    backdrop-filter: blur(6px);
 }
 
 .primary-icon {
-    width: 100%;
+    width:  100%;
 }
 
 .primary-button {
@@ -61,4 +61,25 @@
     align-items: center;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #f5f5f5;
+}
+
+@media screen and (max-width: 1080px) {
+    .primary-icon-container, .no-primary-to-show {
+        width: 292px;
+        height: 117px;
+        left: 2.5px;
+        top: 1px;
+    }
+
+    .primary-button {
+        width: 297px;
+        height: 20px;
+        font-size: 10.5px;
+    }
+
+    .primary-name-container {
+        width: 150px;
+        left: 76px;
+        top: -8px;
+    }
 }

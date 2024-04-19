@@ -6,10 +6,8 @@
 }
 
 .helmet-icon {
-    position: relative;
     object-fit: cover;  
     width: 100%;
-
 }
 
 .headwear-button {
@@ -64,4 +62,29 @@
     justify-content: center;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #f5f5f5;
+}
+
+@media screen and (max-width: 1080px) {
+    .headwear-container {
+        width: 120px;
+        height: 135px;
+        left: 173px;
+    }
+
+    .helmet-icon-container, .no-headwear-to-show {
+        width: 120px;
+        height: 115px;
+    }
+
+    .headwear-button {
+        width: 125px;
+        height: 20px;
+        font-size: 10.5px;
+    }
+
+    .headwear-name-container {
+        width: 100px;
+        top: -8px;
+        left: 12px;
+    }
 }

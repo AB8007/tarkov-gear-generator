@@ -16,6 +16,7 @@ export const RenderMap = ({ randomMap, randomMapName, mapImage, rollRandomMap}) 
     }, [mapImage])
 
     return (
+        <>
         <div className="random-map-container">
             <div className="map-button-container">
                 <button className='random-map-button' onClick={() => rollRandomMap()}>Randomize Map</button>
@@ -42,5 +43,6 @@ export const RenderMap = ({ randomMap, randomMapName, mapImage, rollRandomMap}) 
                 <div className='no-map-to-show'>No Location</div>
             }
         </div>
+        </>
     )
 }

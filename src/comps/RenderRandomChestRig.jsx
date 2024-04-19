@@ -16,7 +16,7 @@ export const RenderRandomChestRig = ({ randomChestRig, randomChestRigImage, ches
     }, [randomChestRigImage])
 
     return (
-        <div>
+        <div className='chestrig-container'>
             <div className="chestrig-title">Chest rig</div>
             {randomChestRig 
                 ? 
