@@ -100,7 +100,7 @@
     to { transform: rotate(360deg); }
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1920px) {
    
     .character-wrapper {
         width: 510px;

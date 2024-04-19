@@ -364,12 +364,7 @@ export const MainComponent = () => {
           rollRandomMap={rollRandomMap}
         ></SettingsMenu>
   <div className='character-wrapper'>
-  <RenderMap
-    randomMap={randomMap}
-    randomMapName={randomMapName}
-    mapImage={mapImage}
-    rollRandomMap={rollRandomMap}
-  ></RenderMap>
+
   <RenderRandomHeadwear
     randomHeadwear={randomHeadwear}
     randomHeadwearImage={randomHeadwearImage}
@@ -407,6 +402,12 @@ export const MainComponent = () => {
     pistolNameToDisplay={pistolNameToDisplay}
     rollRandomPistol={rollRandomPistol}
     />
+      <RenderMap
+    randomMap={randomMap}
+    randomMapName={randomMapName}
+    mapImage={mapImage}
+    rollRandomMap={rollRandomMap}
+  ></RenderMap>
   </div>
   </>
       }
