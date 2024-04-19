@@ -1,16 +1,9 @@
 .bodyarmor-container {
     position: absolute;
     display: flex;
-<<<<<<< HEAD
     left: 262px;
     height: 180px;
     top: 224px;
-=======
-    left: 261px;
-    height: 180px;
-    top: -2px;
-    z-index: 0;
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .bodyarmor-icon-container {
@@ -20,19 +13,13 @@
     position: relative;
     backdrop-filter: blur(6px);
     box-sizing: border-box;
-<<<<<<< HEAD
     top: 28px;
     left: -162px;
-=======
-    top: -154px;
-    left: 263px;
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
     box-sizing: border-box;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
     overflow: hidden;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #f5f5f5;
@@ -41,19 +28,6 @@
 .bodyarmor-icon {
     height: 100%;
     object-fit: cover;
-=======
-}
-
-.bodyarmor-button-container {
-    z-index: 1;
-}
-
-.bodyarmor-icon {
-    width: fit-content;
-    max-height: 100%;
-    backdrop-filter: blur(6px);
-    overflow: hidden;
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .bodyarmor-button {
@@ -76,23 +50,13 @@
     padding: 0.1em;
     text-align: center;
     box-sizing: border-box;
-<<<<<<< HEAD
     top: 170px;
     left: 10px;
-=======
-    left: 272px;
-    top: 170px;
-    z-index: 0;
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .chestrig-icon {
     height: 140px;
     object-fit: cover;
-<<<<<<< HEAD
-=======
-    overflow: hidden;
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 
@@ -103,7 +67,6 @@
     position: absolute;
     backdrop-filter: blur(6px);
     box-sizing: border-box;
-<<<<<<< HEAD
     top: -1px;
     left: 2px;
     display: flex;
@@ -114,13 +77,6 @@
     overflow: hidden;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #f5f5f5;
-=======
-    left: 331px;
-    top: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .chestrig-name-container {
@@ -132,7 +88,6 @@
     padding: 0.1em;
     text-align: center;
     box-sizing: border-box;
-<<<<<<< HEAD
     top: 394px;
     left: 501px;
 }
@@ -142,17 +97,6 @@
     width: 164px;
     top:-3px;
     left: -1px;
-=======
-    left: 340px;
-    top: -10px;
-}
-
-.chestrig-title {
-    position: relative;
-    width: 164px;
-    left: 328px;
-    top: 1px;
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
     color: #f5f5f5;
     border: 2px #2b2b2b solid;
     background: rgb(38,38,38);
@@ -160,45 +104,9 @@
     padding: 0.1em;
     text-align: center;
     box-sizing: border-box;
-<<<<<<< HEAD
     left: 489px;
     top: 224px;
     height: 25px;
-=======
-}
-
-.armoredrig-chestrig-info {
-    width: 158px; 
-    height: 156px; 
-    border: 2px #8D8D8D solid;
-    position: relative;
-    backdrop-filter: blur(2px);
-    box-sizing: border-box;
-    top: 3px;
-    left: 331px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #f5f5f5;
-    padding: 1em;
-}
-
-.no-bodyarmor-to-show {
-    width: 158px;
-    height: 156px;
-    border: 2px #8D8D8D solid;
-    position: relative;
-    backdrop-filter: blur(2px);
-    box-sizing: border-box;
-    top: -154px;
-    left: 263px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #f5f5f5;
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .no-chestrig-to-show {

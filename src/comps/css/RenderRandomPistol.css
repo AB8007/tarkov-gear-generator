@@ -2,12 +2,8 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     left: 490px;
     top: 432px;
-=======
-
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .pistol-icon-container {

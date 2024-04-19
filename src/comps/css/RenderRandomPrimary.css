@@ -2,11 +2,8 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     left: 30px;
     top: 432px;
-=======
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .primary-name-container {
@@ -40,11 +37,7 @@
 }
 
 .primary-icon {
-<<<<<<< HEAD
     width:  100%;
-=======
-    width: 100%;
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .primary-button {

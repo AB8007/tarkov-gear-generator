@@ -5,10 +5,6 @@ import { RenderRandomHeadwear } from './RenderRandomHeadwear'
 import { RenderRandomPistol } from './RenderRandomPistol'
 import { RenderRandomPrimary } from './RenderRandomPrimary'
 import { RenderRandomChestRig } from './RenderRandomChestRig'
-<<<<<<< HEAD
-=======
-import { RenderCharacter } from './RenderCharacter'
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 import { SettingsMenu } from './SettingsMenu'
 import {
     fetchHeadwear, 
@@ -37,8 +33,7 @@ import shoreline from '/images/maps/shoreline.png'
 import streets from '/images/maps/streets.png'
 import woods from '/images/maps/woods.png'
 import labs from '/images/maps/thelab.png'
-import { RenderMap } from './RenderMap';
-import { all } from 'axios';
+import { RenderMap } from './RenderMap'
 
 
 export const MainComponent = () => {
@@ -354,7 +349,6 @@ export const MainComponent = () => {
           <p>Loading</p>
         </div>
           :
-<<<<<<< HEAD
         <>  
         <SettingsMenu
           helmetCheckboxValue={helmetCheckboxValue}
@@ -415,67 +409,6 @@ export const MainComponent = () => {
     />
   </div>
   </>
-=======
-          <div>
-          <RenderCharacter></RenderCharacter>
-            <div>
-            <div className='earpiece-headwear-facecover'>
-            <RenderRandomHeadwear
-              randomHeadwear={randomHeadwear}
-              randomHeadwearImage={randomHeadwearImage}
-              headwearNameToDisplay={headwearNameToDisplay}
-              rollRandomHeadwear={rollRandomHeadwear}
-            />
-            <RenderRandomHeadphones
-              randomHeadphones={randomHeadphones}
-              randomHeadphonesImage={randomHeadphonesImage}
-              headphonesNameToDisplay={headphonesNameToDisplay}
-              rollRandomHeadphones={rollRandomHeadphones}
-            />
-          </div>
-          <div className='bodyarmor'>
-            <RenderRandomBodyArmor
-              randomBodyArmor={randomBodyArmor}
-              randomBodyArmorImage={randomBodyArmorImage}
-              armorNameToDisplay={armorNameToDisplay}
-              rollRandomBodyarmor={rollRandomBodyarmor}
-            />
-            <RenderRandomChestRig
-              randomChestRig={randomChestRig}
-              randomChestRigImage={randomChestRigImage}
-              chestRigNameToDisplay={chestRigNameToDisplay}
-            >
-            </RenderRandomChestRig>
-          </div>
-          <div className='holster'>
-            <RenderRandomPistol 
-              randomPistol={randomPistol}
-              randomPistolImage={randomPistolImage}
-              pistolNameToDisplay={pistolNameToDisplay}
-              rollRandomPistol={rollRandomPistol}
-              />
-            </div>
-            <div className='onsling'>
-            <RenderRandomPrimary
-              randomPrimary={randomPrimary}
-              randomPrimaryImage={randomPrimaryImage}
-              setRandomPrimaryImage={setRandomPrimaryImage}
-              primaryNameToDisplay={primaryNameToDisplay}
-              rollRandomPrimary={rollRandomPrimary}
-
-            />
-          </div>
-          <div className='map'>
-            <RenderMap
-              randomMap={randomMap}
-              randomMapName={randomMapName}
-              mapImage={mapImage}
-              rollRandomMap={rollRandomMap}
-            ></RenderMap>
-          </div>
-            </div>
-          </div>
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
       }
     </div>
     )

@@ -11,10 +11,7 @@ function App() {
   return (
     <div className='body'>
     <BrowserRouter>
-<<<<<<< HEAD
     <Titlebar/>
-=======
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
     <div className='page'>
       <div className='main'>
         <Routes>
