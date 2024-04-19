@@ -5,7 +5,6 @@ import { RenderRandomHeadwear } from './RenderRandomHeadwear'
 import { RenderRandomPistol } from './RenderRandomPistol'
 import { RenderRandomPrimary } from './RenderRandomPrimary'
 import { RenderRandomChestRig } from './RenderRandomChestRig'
-import { RenderCharacter } from './RenderCharacter'
 import { SettingsMenu } from './SettingsMenu'
 import {
     fetchHeadwear, 
@@ -35,8 +34,6 @@ import streets from '/images/maps/streets.png'
 import woods from '/images/maps/woods.png'
 import labs from '/images/maps/thelab.png'
 import { RenderMap } from './RenderMap';
-import { all } from 'axios';
-
 
 export const MainComponent = () => {
     const [loadingPrimaryWeaponsData, setLoadingPrimaryWeaponsData] = useState(true)
@@ -143,9 +140,6 @@ export const MainComponent = () => {
 
             setMaps(filterDuplicates)
             setLoadingPistolsData(false)
-
-
-
 
           } catch (error) {
             console.log('error:', error)
@@ -354,22 +348,21 @@ export const MainComponent = () => {
           <p>Loading</p>
         </div>
           :
-          <>  
-                  <SettingsMenu
-        helmetCheckboxValue={helmetCheckboxValue}
-        setHelmetCheckboxValue={setHelmetCheckboxValue}
-        setHeadphonesCheckboxValue={setHeadphonesCheckboxValue}
-        setHeadphoneBlockCheckboxValue={setHeadphoneBlockCheckboxValue}
-        setArmorCheckboxValue={setArmorCheckboxValue}
-
-        rollRandomPistol={rollRandomPistol}
-        rollRandomPrimary={rollRandomPrimary}
-        rollRandomBodyarmor={rollRandomBodyarmor}
-        rollRandomHeadwear={rollRandomHeadwear}
-        rollRandomHeadphones={rollRandomHeadphones}
-        rollRandomMap={rollRandomMap}
-      ></SettingsMenu>
-          <div className='character-wrapper'>
+        <>  
+        <SettingsMenu
+          helmetCheckboxValue={helmetCheckboxValue}
+          setHelmetCheckboxValue={setHelmetCheckboxValue}
+          setHeadphonesCheckboxValue={setHeadphonesCheckboxValue}
+          setHeadphoneBlockCheckboxValue={setHeadphoneBlockCheckboxValue}
+          setArmorCheckboxValue={setArmorCheckboxValue}
+          rollRandomPistol={rollRandomPistol}
+          rollRandomPrimary={rollRandomPrimary}
+          rollRandomBodyarmor={rollRandomBodyarmor}
+          rollRandomHeadwear={rollRandomHeadwear}
+          rollRandomHeadphones={rollRandomHeadphones}
+          rollRandomMap={rollRandomMap}
+        ></SettingsMenu>
+  <div className='character-wrapper'>
   <RenderMap
     randomMap={randomMap}
     randomMapName={randomMapName}
@@ -416,6 +409,6 @@ export const MainComponent = () => {
   </div>
   </>
       }
-        </div>
+    </div>
     )
 }

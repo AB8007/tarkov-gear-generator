@@ -1,7 +1,9 @@
 .primary-container {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
+    left: 30px;
+    top: 432px;
 }
 
 .primary-name-container {
@@ -52,7 +54,7 @@
     height: 156px; 
     border: 2px rgb(141, 141, 141) solid;
     position: relative;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(6px);
     box-sizing: border-box;
     left: 2px;
     top: 2px;
@@ -64,11 +66,16 @@
 }
 
 @media screen and (max-width: 1080px) {
+
+    .primary-container {
+        top: 324px;
+        left: 22px;
+    }
+
     .primary-icon-container, .no-primary-to-show {
         width: 292px;
-        height: 117px;
-        left: 2.5px;
-        top: 1px;
+        height: 120px;
+        top: 2px;
     }
 
     .primary-button {

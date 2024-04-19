@@ -1,15 +1,15 @@
 .headphones-container {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
-    left: -134px;
+    left: 28px;
+    top: 19px;
 }
 
 .headphones-icon {
     position: relative;
     object-fit: cover;  
     width: 100%;
-
 }
 
 .headphones-button {
@@ -21,6 +21,7 @@
     height: 26px;
     cursor: pointer;
     font-size: 14px;
+    top: -1px;
 }
 
 .headphones-icon-container {
@@ -31,7 +32,7 @@
     backdrop-filter: blur(6px);
     box-sizing: border-box;
     left: 2px;
-    top: 2px;
+    top: 1px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,7 +57,7 @@
     height: 156px;
     border: 2px #8D8D8D solid;
     position: relative;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(6px);
     box-sizing: border-box;
     top: 2px;
     left: 2px;
@@ -70,25 +71,22 @@
 @media screen and (max-width: 1080px) {
     .headphones-container {
         width: 120px;
-        height: 135px;
-        left: -122px;
+        left: 20px;
+        top: 14px;
     }
 
     .headphones-icon-container, .no-headphones-to-show {
         width: 120px;
-        height: 115px;
+        height: 120px;
+        left: 4px;
+        top: 1px;
     }
 
     .headphones-button {
-        width: 124px;
+        width: 126px;
         height: 20px;
         font-size: 10.5px;
         left: 1px;
-    }
-
-    .headphones-icon {
-        width: 75%;
-        height: 75%;
     }
 
     .headphones-name-container {

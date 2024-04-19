@@ -5,7 +5,8 @@
     background: rgb(14,16,14);
     background: linear-gradient(90deg, rgba(14,16,14,1) 18%, rgba(22,24,18,1) 47%, rgba(20,21,17,1) 100%);
     box-sizing: border-box;
-    margin-top: 2vh;
+    margin-top: 5em;
+    box-shadow: 5px 5px 15px black;
 }
 
 .settings-container-wrapper h2 {
@@ -91,6 +92,7 @@
     .settings-container-wrapper {
         width: 510px;
         height: 120px;
+        margin-top: 5em;
     }
 
     .settings-container-wrapper h2 {

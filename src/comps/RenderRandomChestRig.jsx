@@ -35,7 +35,7 @@ export const RenderRandomChestRig = ({ randomChestRig, randomChestRigImage, ches
                         )}
                 </div>
                 : 
-                <div className="armoredrig-chestrig-info">No Chest Rig</div>
+                <div className="chestrig-icon-container">No Chest Rig</div>
             }
         </div>
     )

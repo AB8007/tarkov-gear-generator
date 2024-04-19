@@ -38,7 +38,7 @@ export const RenderRandomBodyArmor = ({randomBodyArmor, randomBodyArmorImage, ar
                 </div>
                 :
                 <div>
-                <div className='no-bodyarmor-to-show'>No Bodyarmor</div>
+                <div className='bodyarmor-icon-container'>No Bodyarmor</div>
                 </div>
             }
 
