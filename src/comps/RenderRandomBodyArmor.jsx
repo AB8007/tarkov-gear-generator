@@ -16,10 +16,15 @@ export const RenderRandomBodyArmor = ({randomBodyArmor, randomBodyArmorImage, ar
     }, [randomBodyArmorImage])
 
     return (
+        <div>
         <div className="bodyarmor-container">
             <div className="bodyarmor-button-container">
                 <button className='bodyarmor-button' onClick={() => rollRandomBodyarmor()}>Randomize Bodyarmor</button>
             </div>
+<<<<<<< HEAD
+=======
+            </div>
+>>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
             {randomBodyArmor 
                 ? 
                 <div>
@@ -38,7 +43,11 @@ export const RenderRandomBodyArmor = ({randomBodyArmor, randomBodyArmorImage, ar
                 </div>
                 :
                 <div>
+<<<<<<< HEAD
                 <div className='bodyarmor-icon-container'>No Bodyarmor</div>
+=======
+                <div className='no-bodyarmor-to-show'>No Bodyarmor</div>
+>>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
                 </div>
             }
 
