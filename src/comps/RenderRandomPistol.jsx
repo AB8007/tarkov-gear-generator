@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import './css/RenderRandomPistol.css'
+import { useSelector } from 'react-redux'
 
-export const RenderRandomPistol = ({ randomPistol, randomPistolImage, pistolNameToDisplay, rollRandomPistol }) => {
+export const RenderRandomPistol = ({ rollRandomPistol }) => {
     const [imageLoaded, setImageLoaded] = useState(false)
-
+    const randomSecondary = useSelector(state => state.secondary)
     useEffect(() => {
         setImageLoaded(false)
         const img = new Image()
@@ -12,28 +13,28 @@ export const RenderRandomPistol = ({ randomPistol, randomPistolImage, pistolName
                 setImageLoaded(true)
             }, 1000)
         }
-        img.src = randomPistolImage
-    }, [randomPistolImage])
+        img.src = randomSecondary.randomSecondaryImage
+    }, [randomSecondary])
 
     return (
         <div className='pistol-container'>
             <div className="pistol-button-container">
                 <button className='pistol-button' onClick={() => rollRandomPistol()}>Randomize Sidearm</button>
             </div>
-            {randomPistol 
+            {randomSecondary.randomSecondaryName
                 ? 
                 <div>
                     <div className="pistol-icon-container">
                     {!imageLoaded ? (
                         <div className='loading-animation'></div>
                             ) : (
-                        <img className='pistol-icon' src={randomPistolImage}></img>
+                        <img className='pistol-icon' src={randomSecondary.randomSecondaryImage}></img>
                         )}
                     </div>
                     {!imageLoaded ? (
                             <div className="pistol-name-container">Randomizing...</div>
                         ) : (
-                            <div className="pistol-name-container">{pistolNameToDisplay}</div>
+                            <div className="pistol-name-container">{randomSecondary.randomSecondaryName}</div>
                         )}
                 </div>
                 : <div className="no-pistol-to-show">

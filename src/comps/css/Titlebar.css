@@ -9,11 +9,7 @@
     position: fixed;
     top: 0px;
     z-index: 1;
-<<<<<<< HEAD
     box-shadow: 5px 5px 15px black;
-=======
-    filter: drop-shadow(2px 2px 5px rgb(36, 36, 36));
->>>>>>> 74e9dcf83178707c3c0158ecd8868dab7100b678
 }
 
 .nav-container {

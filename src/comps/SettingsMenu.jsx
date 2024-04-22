@@ -1,34 +1,48 @@
+import { useDispatch, useSelector } from 'react-redux'
 import './css/SettingsMenu.css'
 import dice from '/images/dice.svg'
-import { useState } from 'react'
+import { changeForceArmoredRigsOut, changeForceHeadsetsFit, changeForceHelmet, changeForceRacHeadsetOut, setRandomizeAllTimeout } from '../reducers/settingsReducer'
 
-export const SettingsMenu = ({ setHelmetCheckboxValue, setHeadphonesCheckboxValue, setHeadphoneBlockCheckboxValue, setArmorCheckboxValue, rollRandomPistol, rollRandomPrimary, rollRandomBodyarmor, rollRandomHeadwear, rollRandomHeadphones, rollRandomMap}) => {
+
+export const SettingsMenu = ({ rollRandomPistol, rollRandomPrimary, rollRandomBodyarmor, rollRandomHeadwear, rollRandomHeadphones, rollRandomMap}) => {
+    const currentState = useSelector((state) => state.settings)
+    const dispatch = useDispatch()
 
     const handleHelmetCheckbox = () => {
-        setHelmetCheckboxValue(prevState => !prevState)
+        const newState = !currentState.forceHelmet
+        dispatch(changeForceHelmet(newState))
     }
 
     const handleHeadphonesCheckbox = () => {
-        setHeadphonesCheckboxValue(prevState => !prevState)
+        const newState = !currentState.forceRacHeadsetOut
+        dispatch(changeForceRacHeadsetOut(newState))
     }
 
     const handleHeadphoneBlockCheckbox = () => {
-        setHeadphoneBlockCheckboxValue(prevState => !prevState)
+        const newState = !currentState.forceHeadsetsFit
+        dispatch(changeForceHeadsetsFit(newState))
     }
 
     const handleArmorCheckboxValue = () => {
-        setArmorCheckboxValue(prevState => !prevState)
+        const newState = !currentState.forceArmoredRigsOut
+        dispatch(changeForceArmoredRigsOut(newState))
     }
 
     const randomizeAll = () => {
-        setTimeout(() => {
+        if (currentState.randomizeAllTimeout === false) {
+            dispatch(setRandomizeAllTimeout(true))
+
             rollRandomPistol()
             rollRandomPrimary()
             rollRandomBodyarmor()
             rollRandomHeadwear()
             rollRandomHeadphones()
             rollRandomMap()
-        }, 100)
+        }
+
+        setTimeout(() => {
+            dispatch(setRandomizeAllTimeout(false))
+        }, 1500)
         return
     }
 
@@ -61,9 +75,14 @@ export const SettingsMenu = ({ setHelmetCheckboxValue, setHeadphonesCheckboxValu
                     </div>
                     </div>
                     <div className='settings-container-bottom'>
-                        <button className='randomize-all-button' onClick={randomizeAll}>Randomize everything!
+                        {currentState.randomizeAllTimeout ? (
+                            <button className='randomize-all-button'>Wait, Randomizing...
                             <img src={dice} className='dice'></img>
-                        </button>
+                            </button>
+                        ) : (                        <button className='randomize-all-button' onClick={randomizeAll}>Randomize everything!
+                        <img src={dice} className='dice'></img>
+                    </button>)}
+
                     </div>
                 </div>
         </div>
