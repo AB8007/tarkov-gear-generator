@@ -13,11 +13,6 @@ export const SettingsMenu = ({ rollRandomPistol, rollRandomPrimary, rollRandomBo
         dispatch(changeForceHelmet(newState))
     }
 
-    const handleHeadphonesCheckbox = () => {
-        const newState = !currentState.forceRacHeadsetOut
-        dispatch(changeForceRacHeadsetOut(newState))
-    }
-
     const handleHeadphoneBlockCheckbox = () => {
         const newState = !currentState.forceHeadsetsFit
         dispatch(changeForceHeadsetsFit(newState))
@@ -42,7 +37,7 @@ export const SettingsMenu = ({ rollRandomPistol, rollRandomPrimary, rollRandomBo
 
         setTimeout(() => {
             dispatch(setRandomizeAllTimeout(false))
-        }, 1500)
+        }, 1000)
         return
     }
 
@@ -57,8 +52,7 @@ export const SettingsMenu = ({ rollRandomPistol, rollRandomPrimary, rollRandomBo
                         </div>
                     </div>
                     <div className='settings-right'>
-                        <div className='checkbox-container'>Exclude RAC-headset (FAST-MT): 
-                            <input type='checkbox' onChange={handleHeadphonesCheckbox}></input>
+                        <div className='checkbox-container'>TBD
                         </div>
                     </div>
                     </div>
@@ -69,7 +63,7 @@ export const SettingsMenu = ({ rollRandomPistol, rollRandomPrimary, rollRandomBo
                         </div>
                     </div>
                     <div className='settings-right'>
-                        <div className='checkbox-container'>Exclude armored rigs:
+                        <div className='checkbox-container'>Exclude armored rigs    
                             <input type='checkbox' onChange={handleArmorCheckboxValue}></input>
                         </div>
                     </div>

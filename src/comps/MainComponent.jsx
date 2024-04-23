@@ -245,17 +245,12 @@ export const MainComponent = () => {
   }
 
   const rollRandomHeadphones = () => {
-    if (settings.forceRacHeadsetOut === true) {
-        const normalHeadphones = headphones.headphonesList.filter(item => !item.name.includes("RAC"))
-        const randomHeadphones = normalHeadphones[randomIndex(normalHeadphones)]
+    const normalHeadphones = headphones.headphonesList.filter(item => !item.name.includes("RAC"))
+    const randomHeadphones = normalHeadphones[randomIndex(normalHeadphones)]
 
-        dispatch(headphonesName(randomHeadphones.shortName))
-        dispatch(headphonesImage(randomHeadphones.image512pxLink))
-        return
-    }
-    const randomItem = headphones.headphonesList[randomIndex(headphones.headphonesList)]
-    dispatch(headphonesName(randomItem.shortName))
-    dispatch(headphonesImage(randomItem.image512pxLink))
+    dispatch(headphonesName(randomHeadphones.shortName))
+    dispatch(headphonesImage(randomHeadphones.image512pxLink))
+    return
   }
 
     return (

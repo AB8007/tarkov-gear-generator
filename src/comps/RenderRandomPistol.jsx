@@ -5,16 +5,18 @@ import { useSelector } from 'react-redux'
 export const RenderRandomPistol = ({ rollRandomPistol }) => {
     const [imageLoaded, setImageLoaded] = useState(false)
     const randomSecondary = useSelector(state => state.secondary)
+    const timeout = useSelector(state => state.settings.randomizeAllTimeout)
     useEffect(() => {
         setImageLoaded(false)
         const img = new Image()
         img.onload = () => {
-            setTimeout(() => {
+            if (timeout === false) {
                 setImageLoaded(true)
-            }, 1500)
+                return
+            }
         }
         img.src = randomSecondary.randomSecondaryImage
-    }, [randomSecondary])
+    }, [randomSecondary, timeout])
 
     return (
         <div className='pistol-container'>

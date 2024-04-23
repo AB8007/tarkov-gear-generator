@@ -2,13 +2,12 @@
     display: flex;
     flex-direction: column;
     width: 7.1vw;
-    height: 8.1vw;
-    
+    height: 8.15vw;
 }
 
 .small-item-icon {
-    width: 99%;
-    height: auto;
+    height: 99%;
+    width: auto;
     object-fit: cover;
     overflow: hidden;
 }
@@ -35,8 +34,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 6.8vw;
+    height: 7vw;
     margin-top: 0.1vw;
+    padding: 0.2vw
 }
 
 .small-item-name-container {
@@ -45,13 +45,22 @@
     width: 6vw;
     background-color:#353935;
     padding: 0.1vw;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     font-size: 0.6vw;
-    position: absolute;
-    top: 6.2vw;
+    top: -0.6vw;
+    left: 0.55vw;
+    position: relative;
 }
 
+.icon-loading {
+    height: 7vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .no-small-item-to-show {
     font-size: 0.8vw;
@@ -65,7 +74,7 @@
 @media screen and (max-width: 500px) {
     .small-item-container {
         width: 24vw;
-        height: 27vw;
+        height: 26vw;
     }
     .small-item-icon-container, .no-small-item-to-show {
         margin-top: 0.2vw;
@@ -78,12 +87,17 @@
         margin-left: -0.25vw;
     }
     .small-item-name-container {
-        margin-top: 14vw;
         width: 20vw;
-        font-size: 2.5vw
+        font-size: 2.5vw;
+        margin-top: -1.5vw;
+        margin-left: 1.5vw;
+
     }
     .no-small-item-to-show {
         font-size: 3vw;
     }
+    .icon-loading{
+        height: 22.5vw;
 
+    }
 }

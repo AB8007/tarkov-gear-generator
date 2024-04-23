@@ -4,17 +4,19 @@ import { useSelector } from 'react-redux'
 
 export const RenderMap = ({ rollRandomMap }) => {
     const [imageLoaded, setImageLoaded] = useState(false)
+    const timeout = useSelector(state => state.settings.randomizeAllTimeout)
     const randomMap = useSelector(state => state.map)
     useEffect(() => {
         setImageLoaded(false)
         const img = new Image()
         img.onload = () => {
-            setTimeout(() => {
+            if (timeout === false) {
                 setImageLoaded(true)
-            }, 1500)
+                return
+            } 
         }
         img.src = randomMap.randomMapImage
-    }, [randomMap.randomMapImage])
+    }, [randomMap.randomMapImage, timeout])
 
     return (
         <>

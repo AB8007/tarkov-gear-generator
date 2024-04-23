@@ -4,17 +4,19 @@ import { useSelector } from 'react-redux'
 
 export const RenderRandomPrimary = ({ rollRandomPrimary }) => {
     const [imageLoaded, setImageLoaded] = useState(false)
+    const timeout = useSelector(state => state.settings.randomizeAllTimeout)
     const randomPrimary = useSelector(state => state.primary)
     useEffect(() => {
         setImageLoaded(false)
         const img = new Image()
         img.onload = () => {
-            setTimeout(() => {
+            if (timeout === false) {
                 setImageLoaded(true)
-            }, 1500)
+                return
+            }
         }
         img.src = randomPrimary.randomPrimaryImage
-    }, [randomPrimary])
+    }, [randomPrimary, timeout])
 
     return (
         <div className='primary-container'>

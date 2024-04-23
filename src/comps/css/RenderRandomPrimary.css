@@ -17,6 +17,7 @@
     backdrop-filter: blur(6px);
     height: 6.8vw;
     margin-top: 0.1vw;
+    padding: 0 1vw;
 }
 
 .primary-name-container {
@@ -74,6 +75,7 @@
     .primary-icon-container, .no-primary-to-show {
         margin-top: 0.2vw;
         height: 22.5vw;
+        padding: 0 3vw;
     }
     .primary-button {
         height: 4vw;
