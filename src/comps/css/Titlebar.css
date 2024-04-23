@@ -50,16 +50,16 @@
     color: #f5f5f5;
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 500px) {
     .bar-container {
-        height: 40px;
+        height: 10vw;
     }
 
     .logo-text {
-        font-size: 20px;
+        font-size: 4vw
     }
 
     .link-text {
-        font-size: 15px;
+        font-size: 3vw;
     }
 }

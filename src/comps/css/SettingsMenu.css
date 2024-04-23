@@ -1,5 +1,5 @@
 .settings-container-wrapper {
-    width: 680px;
+    width: 30vw;
     display: flex;
     flex-direction: column;
     background: rgb(14,16,14);
@@ -11,6 +11,7 @@
 
 .settings-container-wrapper h2 {
     padding: 0.4vh;
+    font-size: 1vw;
 }
 
 .settings-container-wrapper h2{
@@ -20,41 +21,36 @@
 
 .settings-container-top {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 0 2em;
-}
-
-.headwear-settings {
-    display: flex;
 }
 
 .settings-left {
     display: flex;
-    justify-content: space-evenly;
-    border: 2px #8D8D8D solid;
+    border: 0.1vw #8D8D8D solid;
     background-color: #292929;
 }
 
 .settings-right {
     display: flex;
-    justify-content: space-evenly;
-    border: 2px #8D8D8D solid;
+    border: 0.1vw #8D8D8D solid;
     background-color: #292929;
 }
 
 .checkbox-container {
     position: relative;
     color: whitesmoke;
-    width: 270px;
+    width: 11vw;
     align-self: center;
     margin: 0 0.8em;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    font-size: 0.7vw;
 }
 
 .settings-container-middle {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 0.5em 2em
 }
 
@@ -66,9 +62,9 @@
 }
 
 .randomize-all-button {
-    border: 2px #8D8D8D solid;
+    border: 0.1vw  #8D8D8D solid;
     box-sizing: border-box;
-    height: 45px;
+    height: 2vw;
     display: flex;
     align-items: center;
     text-align: center;
@@ -77,41 +73,39 @@
     color: #f5f5f5;
     padding: 1em;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 0.8vw;
 }
 
 .dice {
-    height: 30px;
+    height: 1.5vw;
     float: right;
     filter: invert(100);
     padding-left: 1em;
-    top: 1px;
+    top: 0.1vw;
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 760px) {
+
+}
+
+@media screen and (max-width: 500px) {
     .settings-container-wrapper {
-        width: 510px;
-        height: 120px;
-        margin-top: 5em;
+        width: 100vw;
+        margin-top: 3.5em;
     }
-
-    .settings-container-wrapper h2 {
-        font-size: 15px;
-        padding: 0.3vh;
+    .settings-container-wrapper h2{
+        font-size: 4vw;
     }
-
     .checkbox-container {
-        width: 202px;
-        font-size: 12px;
+        width: 35vw;
+        font-size: 3vw;
+        padding: 0.5vw;
     }
-
     .randomize-all-button {
-        height: 24px;
-        font-size: 12px;
-        padding: 1.1em;
+        height: 6vw;
+        font-size: 4vw;
     }
-
     .dice {
-        height: 22.5px;
+        height: 6vw;
     }
 }

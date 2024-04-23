@@ -1,31 +1,19 @@
-.pistol-container {
+.small-item-container {
     display: flex;
     flex-direction: column;
     width: 7.1vw;
     height: 8.1vw;
-    margin-left: 3vw;
+    
 }
 
-.pistol-icon-container, .no-pistol-to-show  {
-    border: 0.1vw #8D8D8D solid;
-    backdrop-filter: blur(6px);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 6.8vw;
-    margin-top: 0.1vw;
-}
-
-.pistol-icon {
+.small-item-icon {
     width: 99%;
     height: auto;
     object-fit: cover;
     overflow: hidden;
 }
 
-.pistol-button {
+.small-item-button {
     font-size: 0.6vw;
     background: rgb(38,38,38);
     background: linear-gradient(180deg, rgba(38,38,38,1) 6%, rgba(22,23,22,1) 81%, rgba(38,38,38,1) 100%);
@@ -39,57 +27,63 @@
     height: 1.05vw;
 }
 
-.pistol-name-container {
+.small-item-icon-container, .no-small-item-to-show {
+    border: 0.1vw #8D8D8D solid;
+    backdrop-filter: blur(6px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 6.8vw;
+    margin-top: 0.1vw;
+}
+
+.small-item-name-container {
     color: #f5f5f5;
     border: 0.1vw #8D8D8D solid;
     width: 6vw;
     background-color:#353935;
     padding: 0.1vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     box-sizing: border-box;
     font-size: 0.6vw;
-    top: -0.5vw;
-    position: relative;
-    margin-left: 0.55vw;
+    position: absolute;
+    top: 6.2vw;
 }
 
-.no-pistol-to-show {
-    justify-content: center;
-    align-items: center;
+
+.no-small-item-to-show {
+    font-size: 0.8vw;
     display: flex;
-    -webkit-text-stroke-width: 0.1px;
-    -webkit-text-stroke-color: #f5f5f5;
     align-items: center;
-    padding: 1em;
+    justify-content: center;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #f5f5f5;
 }
 
 @media screen and (max-width: 500px) {
-    .pistol-container {
+    .small-item-container {
         width: 24vw;
         height: 27vw;
-        margin-left: 10vw;
     }
-    .pistol-icon-container, .no-pistol-to-show {
+    .small-item-icon-container, .no-small-item-to-show {
         margin-top: 0.2vw;
         height: 22.5vw;
     }
-    .pistol-button {
+    .small-item-button {
         height: 4vw;
         width: 24.75vw;
         font-size: 2.5vw;
         margin-left: -0.25vw;
     }
-    .pistol-name-container{
-        margin-top: -1.5vw;
+    .small-item-name-container {
+        margin-top: 14vw;
         width: 20vw;
-        font-size: 2.5vw;
-        margin-left: 2vw;
+        font-size: 2.5vw
     }
-    .no-pistol-to-show {
+    .no-small-item-to-show {
         font-size: 3vw;
     }
 
 }
-

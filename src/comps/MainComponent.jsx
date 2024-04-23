@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { RenderRandomBodyArmor } from './RenderRandomBodyArmor'
-import { RenderRandomHeadphones } from './RenderRandomHeadphones'
-import { RenderRandomHeadwear } from './RenderRandomHeadwear'
 import { RenderRandomPistol } from './RenderRandomPistol'
 import { RenderRandomPrimary } from './RenderRandomPrimary'
-import { RenderRandomChestRig } from './RenderRandomChestRig'
 import { SettingsMenu } from './SettingsMenu'
 import { fetchItems, fetchMaps } from '../routes/api'
 import customs from '/images/maps/customs.png'
@@ -27,6 +23,7 @@ import { addChestrigs, chestrigImage, chestrigName } from '../reducers/chestrigR
 import { addArmoredRigs } from '../reducers/armoredrigReducer';
 import { addMaps, mapImage, mapName} from '../reducers/mapReducer';
 import { addSecondaryWeapons, secondaryImage, secondaryName } from '../reducers/secondaryReducer';
+import { RenderSmallItem } from './RenderSmallItem';
 
 export const MainComponent = () => {
     const dispatch = useDispatch()
@@ -39,11 +36,11 @@ export const MainComponent = () => {
     const settings = useSelector(state => state.settings)
 
     //wearable states
-    const headphones = useSelector(state => state.headphones.headphonesList)
-    const headwear = useSelector(state => state.headwear.headwearList)
-    const bodyArmors = useSelector(state => state.bodyarmor.bodyarmorsList)
-    const armoredRigs = useSelector(state => state.armoredrig.armoredRigsList)
-    const chestRigs = useSelector(state => state.chestrig.chestrigsList)
+    const headphones = useSelector(state => state.headphones)
+    const headwear = useSelector(state => state.headwear)
+    const bodyArmors = useSelector(state => state.bodyarmor)
+    const armoredRigs = useSelector(state => state.armoredrig)
+    const chestRigs = useSelector(state => state.chestrig)
 
     //weapons states
     const primaryWeapons = useSelector(state => state.primary.primariesList)
@@ -187,11 +184,11 @@ export const MainComponent = () => {
     }
 
     const rollRandomBodyarmor = () => {
-        const armorsAndArmoredRigs = [...bodyArmors]
-        armorsAndArmoredRigs.push(...armoredRigs)
+        const armorsAndArmoredRigs = [...bodyArmors.bodyarmorsList]
+        armorsAndArmoredRigs.push(...armoredRigs.armoredRigsList)
         if (settings.forceArmoredRigsOut === true) {
-        const randomBodyArmor = bodyArmors[randomIndex(bodyArmors)]
-        const randomChestRig = chestRigs[randomIndex(chestRigs)]
+        const randomBodyArmor = bodyArmors.bodyarmorsList[randomIndex(bodyArmors.bodyarmorsList)]
+        const randomChestRig = chestRigs.chestrigsList[randomIndex(chestRigs.chestrigsList)]
           dispatch(bodyarmorName(randomBodyArmor.shortName.replace('Default','')))
           dispatch(bodyarmorImage(randomBodyArmor.image512pxLink))
           dispatch(chestrigName(randomChestRig.shortName))
@@ -201,8 +198,8 @@ export const MainComponent = () => {
 
         const randomArmor = armorsAndArmoredRigs[randomIndex(armorsAndArmoredRigs)]
         // if armor is not an armored rig, also roll for a chest rig
-        if (randomArmor && bodyArmors.includes(randomArmor)) {
-            const randomChestRig = chestRigs[randomIndex(chestRigs)]
+        if (randomArmor && bodyArmors.bodyarmorsList.includes(randomArmor)) {
+            const randomChestRig = chestRigs.chestrigsList[randomIndex(chestRigs.chestrigsList)]
             dispatch(bodyarmorName(randomArmor.shortName.replace('Default','')))
             dispatch(bodyarmorImage(randomArmor.image512pxLink))
             dispatch(chestrigName(randomChestRig.shortName))
@@ -217,9 +214,9 @@ export const MainComponent = () => {
     }
 
     const rollRandomHeadwear = () => {
-      const helmets = headwear.filter(item => item.properties.__typename === "ItemPropertiesHelmet")
-      const compatibleHeadwear = headwear.filter(item => item.blocksHeadphones === false)  
-      const compatibleHelmets = headwear.filter(item => {
+      const helmets = headwear.headwearList.filter(item => item.properties.__typename === "ItemPropertiesHelmet")
+      const compatibleHeadwear = headwear.headwearList.filter(item => item.blocksHeadphones === false)  
+      const compatibleHelmets = headwear.headwearList.filter(item => {
           return item.properties.__typename === "ItemPropertiesHelmet" && item.blocksHeadphones === false
       })
       // force helmet
@@ -241,7 +238,7 @@ export const MainComponent = () => {
             dispatch(headwearImage(randomCompatibleHelmet.image512pxLink))
           return
       }
-      const randomItem = headwear[randomIndex(headwear)]
+      const randomItem = headwear.headwearList[randomIndex(headwear.headwearList)]
         dispatch(headwearName(randomItem.shortName))
         dispatch(headwearImage(randomItem.image512pxLink))
       return
@@ -249,14 +246,14 @@ export const MainComponent = () => {
 
   const rollRandomHeadphones = () => {
     if (settings.forceRacHeadsetOut === true) {
-        const normalHeadphones = headphones.filter(item => !item.name.includes("RAC"))
+        const normalHeadphones = headphones.headphonesList.filter(item => !item.name.includes("RAC"))
         const randomHeadphones = normalHeadphones[randomIndex(normalHeadphones)]
 
         dispatch(headphonesName(randomHeadphones.shortName))
         dispatch(headphonesImage(randomHeadphones.image512pxLink))
         return
     }
-    const randomItem = headphones[randomIndex(headphones)]
+    const randomItem = headphones.headphonesList[randomIndex(headphones.headphonesList)]
     dispatch(headphonesName(randomItem.shortName))
     dispatch(headphonesImage(randomItem.image512pxLink))
   }
@@ -266,9 +263,10 @@ export const MainComponent = () => {
         {isLoading ? 
         <div className='loading-container'>
           Loading...
+          <div className='loading-animation'></div>
         </div>
           :
-        <>  
+        <div className='main-container'>  
         <SettingsMenu
           rollRandomPistol={rollRandomPistol}
           rollRandomPrimary={rollRandomPrimary}
@@ -277,28 +275,54 @@ export const MainComponent = () => {
           rollRandomHeadphones={rollRandomHeadphones}
           rollRandomMap={rollRandomMap}
         ></SettingsMenu>
-  <div className='character-wrapper'>
-  <RenderRandomHeadwear
-    rollRandomHeadwear={rollRandomHeadwear}
-  />
-  <RenderRandomHeadphones
-    rollRandomHeadphones={rollRandomHeadphones}
-  />
-  <RenderRandomBodyArmor
-    rollRandomBodyarmor={rollRandomBodyarmor}
-  />
-  <RenderRandomChestRig/>
-  <RenderRandomPrimary
-    rollRandomPrimary={rollRandomPrimary}
-  />
-  <RenderRandomPistol 
-    rollRandomPistol={rollRandomPistol}
+        <img className='character-background' src='/images/character2.png'></img>
+  <div className='character-grid-container'>
+    <div className='headset-container'>
+      <RenderSmallItem
+        category={'Headset'}
+        name={headphones.randomHeadphonesName}
+        image={headphones.randomHeadphonesImage}
+        rollRandomItem={rollRandomHeadphones}
     />
-  <RenderMap
-    rollRandomMap={rollRandomMap}
-  ></RenderMap>
+    </div>
+    <div className='headwear-container'>
+      <RenderSmallItem 
+        category={'Headwear'}
+        name={headwear.randomHeadwearName}
+        image={headwear.randomHeadwearImage}
+        rollRandomItem={rollRandomHeadwear}
+    />
+    </div>
+    <div className='facecover-container'>
+    </div>
+    <div></div>
+    <RenderSmallItem
+      category={'Body Armor'}
+      name={bodyArmors.randomBodyarmorName}
+      image={bodyArmors.randomBodyarmorImage}
+      rollRandomItem={rollRandomBodyarmor}
+    />
+    <RenderSmallItem
+      category={'Chest Rig'}
+      name={chestRigs.randomChestRigName}
+      image={chestRigs.randomChestRigImage}
+    />
   </div>
-  </>
+  <div className='weapons-container'>
+    <RenderRandomPrimary
+      rollRandomPrimary={rollRandomPrimary}
+    />
+    <RenderRandomPistol
+      rollRandomPistol={rollRandomPistol}
+    />
+
+  </div>
+  <div className='map-container'>
+    <RenderMap
+      rollRandomMap={rollRandomMap}
+    />
+  </div>
+  </div>
       }
     </div>
     )

@@ -11,7 +11,7 @@ export const RenderRandomPistol = ({ rollRandomPistol }) => {
         img.onload = () => {
             setTimeout(() => {
                 setImageLoaded(true)
-            }, 1000)
+            }, 1500)
         }
         img.src = randomSecondary.randomSecondaryImage
     }, [randomSecondary])
@@ -19,7 +19,7 @@ export const RenderRandomPistol = ({ rollRandomPistol }) => {
     return (
         <div className='pistol-container'>
             <div className="pistol-button-container">
-                <button className='pistol-button' onClick={() => rollRandomPistol()}>Randomize Sidearm</button>
+                <button className='pistol-button' onClick={() => rollRandomPistol()}>Sidearm</button>
             </div>
             {randomSecondary.randomSecondaryName
                 ? 

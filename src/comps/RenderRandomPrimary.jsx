@@ -19,7 +19,7 @@ export const RenderRandomPrimary = ({ rollRandomPrimary }) => {
     return (
         <div className='primary-container'>
             <div className='primary-button-container'>
-                <button className='primary-button' onClick={() => rollRandomPrimary()}>Randomize Primary Weapon</button>
+                <button className='primary-button' onClick={() => rollRandomPrimary()}>Primary Weapon</button>
             </div>
             {randomPrimary.randomPrimaryName
                 ?
