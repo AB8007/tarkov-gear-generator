@@ -125,17 +125,7 @@ input[type=checkbox] {
     transform: scale(min(max(1, calc(1 + (100vw - 320px) / 1280)), 2));
 }
 
-@media screen and (max-width: 760px) {
-    .main {
-        width: 80vw;
-    }
-    .character-background {
-        width: 60vw;
-    }
-    .character-grid-container {
-        margin-top: -50.13vw;
-    }
-}
+
 @media screen and (max-width: 500px) {
     .main {
         width: 100vw;
@@ -144,7 +134,7 @@ input[type=checkbox] {
         width: 100vw;
     }
     .character-grid-container {
-        margin-top: -124.13vw;
+        margin-top: -123.8vw;
         gap: 0.5vw 10vw;
         height: 60vw;
     }
@@ -165,3 +155,4 @@ input[type=checkbox] {
         justify-content: space-evenly;
     }
 }
+

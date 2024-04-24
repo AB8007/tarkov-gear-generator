@@ -74,7 +74,7 @@
 @media screen and (max-width: 500px) {
     .small-item-container {
         width: 24vw;
-        height: 26vw;
+        height: 28vw;
     }
     .small-item-icon-container, .no-small-item-to-show {
         margin-top: 0.2vw;
