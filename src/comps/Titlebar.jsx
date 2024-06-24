@@ -12,7 +12,7 @@ export const Titlebar = () => {
                 </div>
                 <div className='link-wrapper'>
                     <Link to='/info' className='link-text'>Info</Link>
-                    <Link to='faq' className='link-text'>FAQ</Link>
+                    <Link to='/faq' className='link-text'>FAQ</Link>
                 </div>
             </div>
         </div>

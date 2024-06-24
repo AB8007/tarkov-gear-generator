@@ -1,17 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './css/SettingsMenu.css'
 import dice from '/images/dice.svg'
-import { changeForceArmoredRigsOut, changeForceHeadsetsFit, changeForceHelmet, changeForceRacHeadsetOut, setRandomizeAllTimeout } from '../reducers/settingsReducer'
+import { changeForceArmoredRigsOut, changeForceHeadsetsFit, setRandomizeAllTimeout } from '../reducers/settingsReducer'
 
 
 export const SettingsMenu = ({ rollRandomPistol, rollRandomPrimary, rollRandomBodyarmor, rollRandomHeadwear, rollRandomHeadphones, rollRandomMap}) => {
     const currentState = useSelector((state) => state.settings)
     const dispatch = useDispatch()
-
-    const handleHelmetCheckbox = () => {
-        const newState = !currentState.forceHelmet
-        dispatch(changeForceHelmet(newState))
-    }
 
     const handleHeadphoneBlockCheckbox = () => {
         const newState = !currentState.forceHeadsetsFit
@@ -45,24 +40,13 @@ export const SettingsMenu = ({ rollRandomPistol, rollRandomPrimary, rollRandomBo
         <div className='settings-container-wrapper'>
             <h2>Settings</h2>
             <div className='settings-container'>
-                <div className='settings-container-top'>
-                    <div className='settings-left'>
-                        <div className='checkbox-container'>Exclude unarmored headwear:  
-                            <input type='checkbox' onChange={handleHelmetCheckbox}></input>
-                        </div>
-                    </div>
-                    <div className='settings-right'>
-                        <div className='checkbox-container'>TBD
-                        </div>
-                    </div>
-                    </div>
                     <div className='settings-container-middle'>
                     <div className='settings-left'>
                         <div className='checkbox-container'>Ensure headset compatibility
                             <input type='checkbox' onChange={handleHeadphoneBlockCheckbox}></input>
                         </div>
                     </div>
-                    <div className='settings-right'>
+                    <div className='settings-left'>
                         <div className='checkbox-container'>Exclude armored rigs    
                             <input type='checkbox' onChange={handleArmorCheckboxValue}></input>
                         </div>
@@ -76,7 +60,6 @@ export const SettingsMenu = ({ rollRandomPistol, rollRandomPrimary, rollRandomBo
                         ) : (                        <button className='randomize-all-button' onClick={randomizeAll}>Randomize everything!
                         <img src={dice} className='dice'></img>
                     </button>)}
-
                     </div>
                 </div>
         </div>

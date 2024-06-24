@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './css/RenderMap.css'
 import { useSelector } from 'react-redux'
 
-export const RenderMap = ({ rollRandomMap }) => {
+export const RenderMap = () => {
     const [imageLoaded, setImageLoaded] = useState(false)
     const timeout = useSelector(state => state.settings.randomizeAllTimeout)
     const randomMap = useSelector(state => state.map)
@@ -21,8 +21,8 @@ export const RenderMap = ({ rollRandomMap }) => {
     return (
         <>
         <div className="random-map-container">
-            <div className="map-button-container">
-                <button className='random-map-button' onClick={() => rollRandomMap()}>Location</button>
+            <div className="map-title-container">
+                Location
             </div>
             {randomMap.randomMapName
                 ?

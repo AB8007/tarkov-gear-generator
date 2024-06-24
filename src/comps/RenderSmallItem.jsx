@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import './css/RenderSmallItem.css'
-export const RenderSmallItem = ({category, name, image, rollRandomItem}) => {
+
+export const RenderSmallItem = ({ category, name, image }) => {
     const [imageLoaded, setImageLoaded] = useState(false)
 
     const timeout = useSelector(state => state.settings.randomizeAllTimeout)
@@ -20,8 +21,8 @@ export const RenderSmallItem = ({category, name, image, rollRandomItem}) => {
 
     return (
         <div className="small-item-container">
-            <div className="small-item-button-container">
-                <button className="small-item-button" onClick={() => rollRandomItem()}>{category}</button>
+            <div className="small-item-title-container">
+                {category}
             </div>
             {name ? (
                 <>
@@ -36,7 +37,7 @@ export const RenderSmallItem = ({category, name, image, rollRandomItem}) => {
                         </>
                     )}
                 </div>
-                <div className='name-container-wrapper'>
+                <>
                 {!imageLoaded ? (
                         <>
                             <div className='small-item-name-container'>Randomizing...</div>
@@ -46,7 +47,7 @@ export const RenderSmallItem = ({category, name, image, rollRandomItem}) => {
                             <div className='small-item-name-container'>{name}</div>
                         </>
                     )}
-                </div>
+                </>
                 </>
                     ) : (
                         <div className='no-small-item-to-show'>No {category}</div>

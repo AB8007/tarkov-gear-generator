@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './css/RenderRandomPistol.css'
 import { useSelector } from 'react-redux'
 
-export const RenderRandomPistol = ({ rollRandomPistol }) => {
+export const RenderRandomPistol = () => {
     const [imageLoaded, setImageLoaded] = useState(false)
     const randomSecondary = useSelector(state => state.secondary)
     const timeout = useSelector(state => state.settings.randomizeAllTimeout)
@@ -20,12 +20,12 @@ export const RenderRandomPistol = ({ rollRandomPistol }) => {
 
     return (
         <div className='pistol-container'>
-            <div className="pistol-button-container">
-                <button className='pistol-button' onClick={() => rollRandomPistol()}>Sidearm</button>
+            <div className="pistol-title-container">
+                Sidearm
             </div>
             {randomSecondary.randomSecondaryName
                 ? 
-                <div>
+                <>
                     <div className="pistol-icon-container">
                     {!imageLoaded ? (
                         <div className='loading-animation'></div>
@@ -38,7 +38,7 @@ export const RenderRandomPistol = ({ rollRandomPistol }) => {
                         ) : (
                             <div className="pistol-name-container">{randomSecondary.randomSecondaryName}</div>
                         )}
-                </div>
+                </>
                 : <div className="no-pistol-to-show">
                     No Sidearm
                 </div>    

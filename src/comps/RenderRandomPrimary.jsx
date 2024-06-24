@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './css/RenderRandomPrimary.css'
 import { useSelector } from 'react-redux'
 
-export const RenderRandomPrimary = ({ rollRandomPrimary }) => {
+export const RenderRandomPrimary = () => {
     const [imageLoaded, setImageLoaded] = useState(false)
     const timeout = useSelector(state => state.settings.randomizeAllTimeout)
     const randomPrimary = useSelector(state => state.primary)
@@ -20,8 +20,8 @@ export const RenderRandomPrimary = ({ rollRandomPrimary }) => {
 
     return (
         <div className='primary-container'>
-            <div className='primary-button-container'>
-                <button className='primary-button' onClick={() => rollRandomPrimary()}>Primary Weapon</button>
+            <div className='primary-title-container'>
+                Primary
             </div>
             {randomPrimary.randomPrimaryName
                 ?

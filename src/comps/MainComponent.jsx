@@ -48,7 +48,7 @@ export const MainComponent = () => {
 
     const maps = useSelector(state => state.map.mapsList)
 
-    useEffect(() => {
+      useEffect(() => {
         const fetchWearableData = async () => {
           try {
             const headwearData = await fetchItems('Headwear')
@@ -261,7 +261,7 @@ export const MainComponent = () => {
           <div className='loading-animation'></div>
         </div>
           :
-        <div className='main-container'>  
+      <div className='main-container'>  
         <SettingsMenu
           rollRandomPistol={rollRandomPistol}
           rollRandomPrimary={rollRandomPrimary}
@@ -270,54 +270,49 @@ export const MainComponent = () => {
           rollRandomHeadphones={rollRandomHeadphones}
           rollRandomMap={rollRandomMap}
         ></SettingsMenu>
-        <img className='character-background' src='/images/character2.png'></img>
-  <div className='character-grid-container'>
-    <div className='headset-container'>
-      <RenderSmallItem
-        category={'Headset'}
-        name={headphones.randomHeadphonesName}
-        image={headphones.randomHeadphonesImage}
-        rollRandomItem={rollRandomHeadphones}
-    />
-    </div>
-    <div className='headwear-container'>
-      <RenderSmallItem 
-        category={'Headwear'}
-        name={headwear.randomHeadwearName}
-        image={headwear.randomHeadwearImage}
-        rollRandomItem={rollRandomHeadwear}
-    />
-    </div>
-    <div className='facecover-container'>
-    </div>
-    <div></div>
-    <RenderSmallItem
-      category={'Body Armor'}
-      name={bodyArmors.randomBodyarmorName}
-      image={bodyArmors.randomBodyarmorImage}
-      rollRandomItem={rollRandomBodyarmor}
-    />
-    <RenderSmallItem
-      category={'Chest Rig'}
-      name={chestRigs.randomChestRigName}
-      image={chestRigs.randomChestRigImage}
-    />
-  </div>
-  <div className='weapons-container'>
-    <RenderRandomPrimary
-      rollRandomPrimary={rollRandomPrimary}
-    />
-    <RenderRandomPistol
-      rollRandomPistol={rollRandomPistol}
-    />
-
-  </div>
-  <div className='map-container'>
-    <RenderMap
-      rollRandomMap={rollRandomMap}
-    />
-  </div>
-  </div>
+          <img className='character-background' src='/images/character2.png'></img>
+        <div className='character-grid-container'>
+          <div className='headset-container'>
+            <RenderSmallItem
+              category={'Headset'}
+              name={headphones.randomHeadphonesName}
+              image={headphones.randomHeadphonesImage}
+            />
+          </div>
+          <div className='headwear-container'>
+            <RenderSmallItem 
+              category={'Headwear'}
+              name={headwear.randomHeadwearName}
+              image={headwear.randomHeadwearImage}
+            />
+          </div>
+          <div className='facecover-container'>
+            <RenderSmallItem
+              category={'Face Cover'}
+            />
+          </div>
+            <RenderSmallItem
+            category={'Backpack'}
+            />
+            <RenderSmallItem
+              category={'Body Armor'}
+              name={bodyArmors.randomBodyarmorName}
+              image={bodyArmors.randomBodyarmorImage}
+            />
+            <RenderSmallItem
+              category={'Chest Rig'}
+              name={chestRigs.randomChestRigName}
+              image={chestRigs.randomChestRigImage}
+            />
+        </div>
+        <div className='weapons-container'>
+          <RenderRandomPrimary/>
+          <RenderRandomPistol/>
+        </div>
+        <div className='map-container'>
+          <RenderMap/>
+        </div>
+      </div>
       }
     </div>
     )
