@@ -53,5 +53,4 @@ export const randomizeHeadwear = createAsyncThunk(
 )
 
 export const { setHeadwear, headwearName, headwearImage } = headwearReducer.actions
-
 export default headwearReducer.reducer
