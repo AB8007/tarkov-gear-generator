@@ -1,4 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import randomizeItem from "../utils/randomIndex";
+import { fetchItems } from "../routes/api";
 
 export const headphonesReducer = createSlice ({
     name: 'headphones',
@@ -8,7 +10,7 @@ export const headphonesReducer = createSlice ({
         randomHeadphonesImage: null
     },
     reducers: {
-        addHeadphones: (state, action) => {
+        setHeadphones: (state, action) => {
             state.headphonesList.push(...action.payload)
         },
         headphonesName: (state, action) => {
@@ -19,6 +21,28 @@ export const headphonesReducer = createSlice ({
         }
     }
 })
-export const { addHeadphones, headphonesName, headphonesImage } = headphonesReducer.actions
 
+export const initializeHeadphones = createAsyncThunk(
+    'headphones/initialize',
+    async (_, {dispatch}) => {
+        const rawData = await fetchItems('Headphones')
+        const filteredData = rawData.data.items
+        dispatch(setHeadphones(filteredData))
+    }
+)
+
+export const randomizeHeadphones = createAsyncThunk(
+    'headphones/randomizeHeadphones',
+    async (_, { dispatch, getState}) => {
+        const state = getState()
+        const headphones = state.headphones.headphonesList
+        const normalHeadphones = headphones.filter(item => !item.name.includes("RAC"))
+        console.log(normalHeadphones)
+        const randomItem = randomizeItem(normalHeadphones)
+        dispatch(headphonesName(randomItem.shortName))
+        dispatch(headphonesImage(randomItem.image512pxLink))
+    }
+)
+
+export const { setHeadphones, headphonesName, headphonesImage } = headphonesReducer.actions
 export default headphonesReducer.reducer

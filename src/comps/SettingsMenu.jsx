@@ -2,9 +2,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import './css/SettingsMenu.css'
 import dice from '/images/dice.svg'
 import { changeForceArmoredRigsOut, changeForceHeadsetsFit, setRandomizeAllTimeout } from '../reducers/settingsReducer'
+import { randomizeSecondary } from '../reducers/secondaryReducer'
+import { randomizePrimary } from '../reducers/primaryReducer'
+import { randomizeHeadphones } from '../reducers/headphonesReducer'
+import { randomizeBodyarmor } from '../reducers/bodyarmorReducer'
+import { randomizeHeadwear } from '../reducers/headwearReducer'
+import { randomizeMap } from '../reducers/mapReducer'
 
-
-export const SettingsMenu = ({ rollRandomPistol, rollRandomPrimary, rollRandomBodyarmor, rollRandomHeadwear, rollRandomHeadphones, rollRandomMap}) => {
+export const SettingsMenu = () => {
     const currentState = useSelector((state) => state.settings)
     const dispatch = useDispatch()
 
@@ -22,12 +27,12 @@ export const SettingsMenu = ({ rollRandomPistol, rollRandomPrimary, rollRandomBo
         if (currentState.randomizeAllTimeout === false) {
             dispatch(setRandomizeAllTimeout(true))
 
-            rollRandomPistol()
-            rollRandomPrimary()
-            rollRandomBodyarmor()
-            rollRandomHeadwear()
-            rollRandomHeadphones()
-            rollRandomMap()
+            dispatch(randomizeSecondary())
+            dispatch(randomizePrimary())
+            dispatch(randomizeBodyarmor())
+            dispatch(randomizeHeadwear())
+            dispatch(randomizeHeadphones())
+            dispatch(randomizeMap())
         }
 
         setTimeout(() => {

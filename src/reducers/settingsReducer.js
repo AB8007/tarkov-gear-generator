@@ -20,7 +20,6 @@ export const settingsReducer = createSlice({
     }
 })
 
-
 export const { changeForceHeadsetsFit, changeForceArmoredRigsOut, setRandomizeAllTimeout } = settingsReducer.actions
 export default settingsReducer.reducer
 

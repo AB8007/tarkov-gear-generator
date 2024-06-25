@@ -17,7 +17,7 @@ export const RenderMap = () => {
         }
         img.src = randomMap.randomMapImage
     }, [randomMap.randomMapImage, timeout])
-
+    console.log(randomMap.randomMapImage)
     return (
         <>
         <div className="random-map-container">
