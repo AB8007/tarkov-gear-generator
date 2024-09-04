@@ -1,157 +1,188 @@
 @font-face {
-    font-family: 'Light';
-    src: local('Bender'),
-        url('/fonts/bender.otf') format('opentype')
+  font-family: 'Light';
+  src:
+    local('Bender'),
+    url('/fonts/bender.otf') format('opentype');
 }
 
 * {
-    font-family: 'Light';
-    margin: 0;
+  font-family: 'Light';
+  margin: 0;
 }
 
 .body {
-    background-image: url('/images/background.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    min-width: auto;
-    font-family: "Light";
-    background-color: rgb(14,16,14);
-    background-color: linear-gradient(90deg, rgba(14,16,14,1) 18%, rgba(22,24,18,1) 47%, rgba(20,21,17,1) 100%);
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
+  background-image: url('/images/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  min-width: auto;
+  font-family: 'Light';
+  background-color: rgb(14, 16, 14);
+  background-color: linear-gradient(
+    90deg,
+    rgba(14, 16, 14, 1) 18%,
+    rgba(22, 24, 18, 1) 47%,
+    rgba(20, 21, 17, 1) 100%
+  );
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .page {
-    display: flex;
-    justify-content: center;
-    margin: 0;
+  display: flex;
+  justify-content: center;
+  margin: 0;
 }
 
 .main {
-    width: 60vw;
-    display: flex;
-    justify-content: center;
+  width: 60vw;
+  display: flex;
+  justify-content: center;
 }
 
 .main-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .character-background {
-    width: 30vw;
-    display: flex;
-    justify-content: center;
-    height: auto;
-    box-shadow: 5px 5px 15px black;
-    margin-top: 1em;
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  box-shadow: 5px 5px 15px black;
+  margin-top: 1em;
 }
 
 .character-grid-container {
-    display: grid;
-    justify-content: center;
-    width: auto;
-    height: auto;
-    margin-top: -37.2vw;
-    gap: 1vw 3vw;
-    position: relative;
-
+  display: grid;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin-top: -37.2vw;
+  gap: 1vw 3vw;
+  position: relative;
 }
 
 .headset-container {
-    grid-column: 1;
-    grid-row: 1;
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .headwear-container {
-    grid-column: 2;
-    grid-row: 1;
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .facecover-container {
-    grid-column: 3;
-    grid-row: 1;
+  grid-column: 3;
+  grid-row: 1;
 }
 
 .weapons-container {
-    height: 8vw;
-    margin-top: 1.1vw;
-    display: flex;
+  height: 8vw;
+  margin-top: 1.1vw;
+  display: flex;
 }
 
 .character-background-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .loading-container {
-    width: 10em;
-    display: flex;
-    background: rgb(14,16,14);
-    background: linear-gradient(90deg, rgba(14,16,14,1) 18%, rgba(22,24,18,1) 47%, rgba(20,21,17,1) 100%);
-    box-sizing: border-box;
-    box-shadow: 5px 5px 15px black;
-    height: auto;
-    overflow: hidden;
-    justify-content: center;
-    font-size: 50px;
-    align-items: center;
-    color: #f5f5f5;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #1d1d1d;
+  width: 10em;
+  display: flex;
+  background: rgb(14, 16, 14);
+  background: linear-gradient(
+    90deg,
+    rgba(14, 16, 14, 1) 18%,
+    rgba(22, 24, 18, 1) 47%,
+    rgba(20, 21, 17, 1) 100%
+  );
+  box-sizing: border-box;
+  box-shadow: 5px 5px 15px black;
+  height: auto;
+  overflow: hidden;
+  justify-content: center;
+  font-size: 50px;
+  align-items: center;
+  color: #f5f5f5;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #1d1d1d;
 }
 
 .loading-animation {
-    width: 2vw;
-    height: 2vw;
-    animation: spin 2s linear infinite;
-    background-image: url('/images/small_dice.svg');
-    background-repeat: no-repeat;
-    box-sizing: border-box;
-    border: 0.15vw solid rgb(255, 255, 255);
-    background-position: center;
-    border-radius: 0.4vw;
-    background-color: rgb(14,16,14);
+  width: 2vw;
+  height: 2vw;
+  animation: spin 2s linear infinite;
+  background-image: url('/images/small_dice.svg');
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  border: 0.15vw solid rgb(255, 255, 255);
+  background-position: center;
+  border-radius: 0.4vw;
+  background-color: rgb(14, 16, 14);
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-input[type=checkbox] {
-    transform: scale(min(max(1, calc(1 + (100vw - 320px) / 1280)), 2));
+input[type='checkbox'] {
+  transform: scale(min(max(1, calc(1 + (100vw - 320px) / 1280)), 2));
 }
 
-@media screen and (max-width: 500px) {
-    .main {
-        width: 100vw;
-    }
-    .character-background {
-        width: 100vw;
-    }
-    .character-grid-container {
-        margin-top: -124.5vw;
-        gap: 0 10vw;
-        height: 60vw;
-    }
-    .weapons-container {
-        height: 27vw;
-    }
-    .loading-animation {
-        width: 6vw;
-        height: 6vw;
-        border-radius: 1vw;
-    }
-    .loading-container {
-        display: flex;
-        width: 90vw;
-        align-items: center;
-        margin-top: 45vh;
-        height: 10vh;
-        justify-content: space-evenly;
-    }
+@media only screen and (max-width: 960px) {
+  .main {
+    width: 100vw;
+  }
+  .character-background {
+    width: 100vw;
+  }
+  .character-grid-container {
+    margin-top: 8vw;
+    gap: 0 10vw;
+    height: 60vw;
+  }
+  .weapons-container {
+    height: 27vw;
+  }
+  .loading-animation {
+    width: 6vw;
+    height: 6vw;
+    border-radius: 1vw;
+  }
+  .loading-container {
+    display: flex;
+    width: 90vw;
+    align-items: center;
+    margin-top: 45vh;
+    height: 10vh;
+    justify-content: space-evenly;
+  }
 }
 
+@media only screen and (min-width: 961px) {
+  .main {
+    width: 100vw;
+  }
+
+  .character-grid-container {
+    margin-top: 8vw;
+    gap: 4vw 12vw;
+    height: 48vw;
+    border: 1px solid green;
+  }
+
+  .character-background {
+    width: 80vw;
+    margin: 1rem auto;
+  }
+}

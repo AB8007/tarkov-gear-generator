@@ -1,51 +1,63 @@
 import React, { useEffect, useState } from 'react';
-import { SettingsMenu } from './SettingsMenu'
-import { RenderMap } from './RenderMap'
+import { SettingsMenu } from './SettingsMenu';
+import { RenderMap } from './RenderMap';
 import { useDispatch } from 'react-redux';
 import { initializeHeadwear } from '../reducers/headwearReducer';
 import { initializeHeadphones } from '../reducers/headphonesReducer';
 import { initializePrimaries } from '../reducers/primaryReducer';
 import { initializeBodyarmors } from '../reducers/bodyarmorReducer';
-import { initializeChestrigs} from '../reducers/chestrigReducer';
+import { initializeChestrigs } from '../reducers/chestrigReducer';
 import { initializeMaps } from '../reducers/mapReducer';
 import { initializeSecondaries } from '../reducers/secondaryReducer';
 import { RenderWeapons } from './RenderWeapons';
 import { Wearables } from './Wearables';
+import { useQuery } from '@apollo/client';
+import { GET_DATA } from '../queries';
 
 export const MainComponent = () => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-    const [ isLoading, setIsLoading ] = useState(true) 
+  const { data, loading, error } = useQuery(GET_DATA);
 
-      useEffect(() => {
-        dispatch(initializeBodyarmors())
-        dispatch(initializeChestrigs())
-        dispatch(initializeHeadwear())
-        dispatch(initializeHeadphones())
-        dispatch(initializeSecondaries())
-        dispatch(initializeMaps())
-        dispatch(initializePrimaries())
-        setIsLoading(false)
-      }, [])
-        
-    return (
-      <div className='character-container'>
-        {isLoading ? 
+  useEffect(() => {
+    if (
+      data &&
+      data.primaries &&
+      data.secondaries &&
+      data.headwear &&
+      data.headphones &&
+      data.bodyarmors &&
+      data.chestrigs &&
+      data.maps
+    ) {
+      dispatch(initializePrimaries(data.primaries));
+      dispatch(initializeSecondaries(data.secondaries));
+      dispatch(initializeHeadwear(data.headwear));
+      dispatch(initializeBodyarmors(data.bodyarmors));
+      dispatch(initializeChestrigs(data.chestrigs));
+      dispatch(initializeHeadphones(data.headphones));
+      dispatch(initializeMaps(data.maps));
+    }
+  }, [data]);
+
+  return (
+    <div className='character-container'>
+      {loading ? (
         <div className='loading-container'>
           Loading...
           <div className='loading-animation'></div>
         </div>
-          :
-      <div className='main-container'>  
-        <SettingsMenu/>
-          <img className='character-background' src='/images/character2.png'></img>
-          <Wearables/>
-          <RenderWeapons/>
-        <div className='map-container'>
-          <RenderMap/>
+      ) : (
+        <div className='main-container'>
+          <SettingsMenu />
+          <Wearables />
+          <RenderWeapons />
+          <div className='map-container'>
+            <RenderMap />
+          </div>
         </div>
-      </div>
-      }
+      )}
+      {error ? <div className='loading-container'>{error.message}</div> : null}
     </div>
-    )
-}
+  );
+};
