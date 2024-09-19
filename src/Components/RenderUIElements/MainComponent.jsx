@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { SettingsMenu } from './SettingsMenu';
-import { RenderMap } from './RenderMap';
+import { SettingsMenu } from '../RenderUIElements/SettingsMenu';
+import { RenderMap } from '../RenderUIElements/RenderMap';
 import { useDispatch } from 'react-redux';
-import { initializeHeadwear } from '../reducers/headwearReducer';
-import { initializeHeadphones } from '../reducers/headphonesReducer';
-import { initializePrimaries } from '../reducers/primaryReducer';
-import { initializeBodyarmors } from '../reducers/bodyarmorReducer';
-import { initializeChestrigs } from '../reducers/chestrigReducer';
-import { initializeMaps } from '../reducers/mapReducer';
-import { initializeSecondaries } from '../reducers/secondaryReducer';
-import { RenderWeapons } from './RenderWeapons';
-import { Wearables } from './Wearables';
+import { initializeHeadwear } from '../../reducers/headwearReducer';
+import { initializeHeadphones } from '../../reducers/headphonesReducer';
+import { initializePrimaries } from '../../reducers/primaryReducer';
+import { initializeBodyarmors } from '../../reducers/bodyarmorReducer';
+import { initializeChestrigs } from '../../reducers/chestrigReducer';
+import { initializeMaps } from '../../reducers/mapReducer';
+import { initializeSecondaries } from '../../reducers/secondaryReducer';
+
 import { useQuery } from '@apollo/client';
-import { GET_DATA } from '../queries';
+import { GET_DATA } from '../../queries';
+import { Wearables } from '../RenderItems/Wearables/Wearables';
+import { RenderWeapons } from '../RenderItems/Weapons/RenderWeapons';
 
 export const MainComponent = () => {
   const dispatch = useDispatch();

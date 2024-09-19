@@ -1,17 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
-import './css/SettingsMenu.css';
+import '../Css/SettingsMenu.css';
 import dice from '/images/dice.svg';
 import {
   changeForceArmoredRigsOut,
   changeForceHeadsetsFit,
   setRandomizeAllTimeout,
-} from '../reducers/settingsReducer';
-import { randomizeSecondary } from '../reducers/secondaryReducer';
-import { randomizePrimary } from '../reducers/primaryReducer';
-import { randomizeHeadphones } from '../reducers/headphonesReducer';
-import { randomizeBodyarmor } from '../reducers/bodyarmorReducer';
-import { randomizeHeadwear } from '../reducers/headwearReducer';
-import { randomizeMap } from '../reducers/mapReducer';
+} from '../../reducers/settingsReducer';
+import { randomizeSecondary } from '../../reducers/secondaryReducer';
+import { randomizePrimary } from '../../reducers/primaryReducer';
+import { randomizeHeadphones } from '../../reducers/headphonesReducer';
+import { randomizeBodyarmor } from '../../reducers/bodyarmorReducer';
+import { randomizeHeadwear } from '../../reducers/headwearReducer';
+import { randomizeMap } from '../../reducers/mapReducer';
 
 export const SettingsMenu = () => {
   const currentState = useSelector((state) => state.settings);

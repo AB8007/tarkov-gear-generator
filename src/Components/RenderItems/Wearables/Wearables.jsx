@@ -6,14 +6,14 @@ import { RenderBackpack } from './RenderBackpack';
 import { RenderFacecover } from './RenderFacecover';
 
 export const Wearables = () => {
-    return (
-        <div className='character-grid-container'>
-        <RenderHeadphones/>
-        <RenderHeadwear/>
-        <RenderFacecover/>
-        <RenderBackpack/>
-        <RenderBodyarmor/>
-        <RenderChestRig/>
+  return (
+    <div className='character-grid-container'>
+      <RenderHeadphones />
+      <RenderHeadwear />
+      <RenderFacecover />
+      <RenderBackpack />
+      <RenderBodyarmor />
+      <RenderChestRig />
     </div>
-    )
-}
+  );
+};

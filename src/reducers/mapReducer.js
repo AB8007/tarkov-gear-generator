@@ -68,7 +68,7 @@ export const randomizeMap = createAsyncThunk(
       dispatch(mapName(randomMap.name));
       dispatch(mapImage(imageToDisplay.image));
     } else {
-      console.log(`No image found for map: ${randomMapName}`);
+      console.log(`No image found for map: ${randomMap.name}`);
     }
     return;
   },
