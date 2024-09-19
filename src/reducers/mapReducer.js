@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import randomizeItem from '../utils/randomIndex';
 import customs from '/images/maps/customs.png';
 import factory from '/images/maps/factory.png';
@@ -28,18 +28,17 @@ export const mapReducer = createSlice({
   name: 'map',
   initialState: {
     maps: null,
-    randomMapName: null,
-    randomMapImage: null,
+    randomMap: {
+      name: null,
+      image: null,
+    },
   },
   reducers: {
     setMaps: (state, action) => {
       state.maps = action.payload;
     },
-    mapName: (state, action) => {
-      state.randomMapName = action.payload;
-    },
-    mapImage: (state, action) => {
-      state.randomMapImage = action.payload;
+    setRandomMap: (state, action) => {
+      state.randomMap = { ...action.payload };
     },
   },
 });
@@ -53,27 +52,25 @@ export const initializeMaps = (data) => {
   };
 };
 
-export const randomizeMap = createAsyncThunk(
-  'map/randomizeMap',
-  async (_, { dispatch, getState }) => {
+export const randomizeMap = () => {
+  return async (dispatch, getState) => {
     const state = getState();
     const maps = state.map.maps;
-
     const randomMap = randomizeItem(maps);
-
     const imageToDisplay = mapThumbnails.find((map) =>
       map.name.includes(randomMap.name.toLowerCase()),
     );
     if (imageToDisplay) {
-      dispatch(mapName(randomMap.name));
-      dispatch(mapImage(imageToDisplay.image));
+      dispatch(
+        setRandomMap({ name: randomMap.name, image: imageToDisplay.image }),
+      );
     } else {
       console.log(`No image found for map: ${randomMap.name}`);
     }
     return;
-  },
-);
+  };
+};
 
-export const { setMaps, mapName, mapImage } = mapReducer.actions;
+export const { setMaps, setRandomMap } = mapReducer.actions;
 
 export default mapReducer.reducer;

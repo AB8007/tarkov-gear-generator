@@ -1,22 +1,21 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import randomizeItem from '../utils/randomIndex';
 
 export const secondaryReducer = createSlice({
   name: 'secondary',
   initialState: {
     secondaries: null,
-    randomSecondaryName: null,
-    randomSecondaryImage: null,
+    randomizedSecondary: {
+      name: null,
+      image: null,
+    },
   },
   reducers: {
     setSecondaries: (state, action) => {
       state.secondaries = action.payload;
     },
-    secondaryName: (state, action) => {
-      state.randomSecondaryName = action.payload;
-    },
-    secondaryImage: (state, action) => {
-      state.randomSecondaryImage = action.payload;
+    setRandomizedSecondary: (state, action) => {
+      state.randomizedSecondary = { ...action.payload };
     },
   },
 });
@@ -27,17 +26,20 @@ export const initializeSecondaries = (data) => {
   };
 };
 
-export const randomizeSecondary = createAsyncThunk(
-  'secondary/randomizeSecondary',
-  async (_, { dispatch, getState }) => {
+export const randomizeSecondary = () => {
+  return async (dispatch, getState) => {
     const state = getState();
     const secondaries = state.secondary.secondaries;
     const randomItem = randomizeItem(secondaries);
-    dispatch(secondaryName(randomItem.shortName.replace('Default', '')));
-    dispatch(secondaryImage(randomItem.image512pxLink));
-  },
-);
+    dispatch(
+      setRandomizedSecondary({
+        name: randomItem.shortName.replace('Default', ''),
+        image: randomItem.image512pxLink,
+      }),
+    );
+  };
+};
 
-export const { setSecondaries, secondaryName, secondaryImage } =
+export const { setSecondaries, setRandomizedSecondary } =
   secondaryReducer.actions;
 export default secondaryReducer.reducer;

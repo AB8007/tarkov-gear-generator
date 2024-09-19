@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 export const RenderMap = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const timeout = useSelector((state) => state.settings.randomizeAllTimeout);
-  const randomMap = useSelector((state) => state.map);
+  const { randomMap } = useSelector((state) => state.map);
   useEffect(() => {
     setImageLoaded(false);
     const img = new Image();
@@ -15,27 +15,25 @@ export const RenderMap = () => {
         return;
       }
     };
-    img.src = randomMap.randomMapImage;
-  }, [randomMap.randomMapImage, timeout]);
+    img.src = randomMap.image;
+  }, [randomMap.image, timeout]);
 
   return (
     <>
       <div className='random-map-container'>
         <div className='map-title-container'>Location</div>
-        {randomMap.randomMapName ? (
+        {randomMap.name ? (
           <div>
             <div className='map-image-container'>
               {!imageLoaded ? (
                 <div className='loading-animation'></div>
               ) : (
-                <img
-                  src={randomMap.randomMapImage}
-                  className='map-thumbnail'></img>
+                <img src={randomMap.image} className='map-thumbnail'></img>
               )}
             </div>
             <div className='map-name-container'>
               {!imageLoaded ? null : (
-                <p className='map-title'>{randomMap.randomMapName}</p>
+                <p className='map-title'>{randomMap.name}</p>
               )}
             </div>
           </div>

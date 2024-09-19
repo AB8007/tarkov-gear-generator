@@ -35,6 +35,7 @@ export const GET_DATA = gql`
       properties {
         __typename
       }
+      blocksHeadphones
       shortName
     }
     bodyarmors: items(categoryNames: Armor, name: "Default") {
