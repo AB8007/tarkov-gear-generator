@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 export const RenderRandomPrimary = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const timeout = useSelector((state) => state.settings.randomizeAllTimeout);
-  const randomPrimary = useSelector((state) => state.primary);
+  const { randomizedPrimary } = useSelector((state) => state.primary);
   useEffect(() => {
     setImageLoaded(false);
     const img = new Image();
@@ -15,28 +15,26 @@ export const RenderRandomPrimary = () => {
         return;
       }
     };
-    img.src = randomPrimary.randomPrimaryImage;
-  }, [randomPrimary, timeout]);
+    img.src = randomizedPrimary.image;
+  }, [randomizedPrimary, timeout]);
 
   return (
     <div className='primary-container'>
       <div className='primary-title-container'>Primary</div>
-      {randomPrimary.randomPrimaryName ? (
+      {randomizedPrimary.name ? (
         <div>
           <div className='primary-icon-container'>
             {!imageLoaded ? (
               <div className='loading-animation'></div>
             ) : (
-              <img
-                className='primary-icon'
-                src={randomPrimary.randomPrimaryImage}></img>
+              <img className='primary-icon' src={randomizedPrimary.image}></img>
             )}
           </div>
           {!imageLoaded ? (
             <div className='primary-name-container'>Randomizing...</div>
           ) : (
             <div className='primary-name-container'>
-              {randomPrimary.randomPrimaryName}
+              {randomizedPrimary.name}
             </div>
           )}
         </div>

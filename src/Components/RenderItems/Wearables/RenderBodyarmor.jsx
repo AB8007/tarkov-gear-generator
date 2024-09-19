@@ -2,14 +2,14 @@ import { useSelector } from 'react-redux';
 import { RenderSmallItem } from './RenderSmallItem';
 
 export const RenderBodyarmor = () => {
-  const bodyarmor = useSelector((state) => state.bodyarmor);
+  const { randomizedBodyarmor } = useSelector((state) => state.bodyarmor);
 
   return (
     <>
       <RenderSmallItem
         category={'Body Armor'}
-        name={bodyarmor.randomBodyarmorName}
-        image={bodyarmor.randomBodyarmorImage}
+        name={randomizedBodyarmor.name}
+        image={randomizedBodyarmor.image}
       />
     </>
   );

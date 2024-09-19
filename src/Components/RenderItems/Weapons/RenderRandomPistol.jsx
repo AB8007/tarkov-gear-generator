@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 export const RenderRandomPistol = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
-  const randomSecondary = useSelector((state) => state.secondary);
+  const { randomizedSecondary } = useSelector((state) => state.secondary);
   const timeout = useSelector((state) => state.settings.randomizeAllTimeout);
   useEffect(() => {
     setImageLoaded(false);
@@ -15,13 +15,13 @@ export const RenderRandomPistol = () => {
         return;
       }
     };
-    img.src = randomSecondary.randomSecondaryImage;
-  }, [randomSecondary, timeout]);
+    img.src = randomizedSecondary.image;
+  }, [randomizedSecondary, timeout]);
 
   return (
     <div className='pistol-container'>
       <div className='pistol-title-container'>Sidearm</div>
-      {randomSecondary.randomSecondaryName ? (
+      {randomizedSecondary.name ? (
         <>
           <div className='pistol-icon-container'>
             {!imageLoaded ? (
@@ -29,14 +29,14 @@ export const RenderRandomPistol = () => {
             ) : (
               <img
                 className='pistol-icon'
-                src={randomSecondary.randomSecondaryImage}></img>
+                src={randomizedSecondary.image}></img>
             )}
           </div>
           {!imageLoaded ? (
             <div className='pistol-name-container'>Randomizing...</div>
           ) : (
             <div className='pistol-name-container'>
-              {randomSecondary.randomSecondaryName}
+              {randomizedSecondary.name}
             </div>
           )}
         </>

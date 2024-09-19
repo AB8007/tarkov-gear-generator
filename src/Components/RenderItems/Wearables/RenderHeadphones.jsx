@@ -2,13 +2,13 @@ import { useSelector } from 'react-redux';
 import { RenderSmallItem } from './RenderSmallItem';
 
 export const RenderHeadphones = () => {
-  const headphones = useSelector((state) => state.headphones);
+  const { randomizedHeadphones } = useSelector((state) => state.headphones);
   return (
     <div className='headset-container'>
       <RenderSmallItem
         category={'Headset'}
-        name={headphones.randomHeadphonesName}
-        image={headphones.randomHeadphonesImage}
+        name={randomizedHeadphones.name}
+        image={randomizedHeadphones.image}
       />
     </div>
   );
