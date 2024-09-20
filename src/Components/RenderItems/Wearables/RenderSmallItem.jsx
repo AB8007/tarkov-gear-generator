@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import '../../Css/RenderSmallItem.css';
+import PropTypes from 'prop-types';
 
 export const RenderSmallItem = ({ category, name, image }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -52,4 +53,10 @@ export const RenderSmallItem = ({ category, name, image }) => {
       )}
     </div>
   );
+};
+
+RenderSmallItem.propTypes = {
+  category: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };

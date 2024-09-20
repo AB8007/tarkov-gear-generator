@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { SettingsMenu } from '../RenderUIElements/SettingsMenu';
 import { RenderMap } from '../RenderUIElements/RenderMap';
 import { useDispatch } from 'react-redux';
@@ -39,7 +39,7 @@ export const MainComponent = () => {
       dispatch(initializeHeadphones(data.headphones));
       dispatch(initializeMaps(data.maps));
     }
-  }, [data]);
+  }, [data, dispatch]);
 
   return (
     <div className='character-container'>

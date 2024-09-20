@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import '../src/app.css';
 import { Titlebar } from './Components/RenderUIElements/Titlebar.jsx';
