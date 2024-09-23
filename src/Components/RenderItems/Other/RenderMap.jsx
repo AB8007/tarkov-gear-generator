@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import '../Css/RenderMap.css';
+import '../../Css/RenderMap.css';
 import { useSelector } from 'react-redux';
 
 export const RenderMap = () => {

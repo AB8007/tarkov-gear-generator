@@ -51,7 +51,7 @@ export const SettingsMenu = () => {
       <div className='settings-container'>
         <div className='settings-container-middle'>
           <div className='settings-left'>
-            <div className='checkbox-container'>
+            <div className='checkbox-container' data-testid='settingCheckbox'>
               Ensure headset compatibility
               <input
                 type='checkbox'
@@ -59,7 +59,7 @@ export const SettingsMenu = () => {
             </div>
           </div>
           <div className='settings-left'>
-            <div className='checkbox-container'>
+            <div className='checkbox-container' data-testid='settingCheckbox'>
               Ensure bodyarmor compatibility
               <input
                 type='checkbox'
@@ -69,12 +69,17 @@ export const SettingsMenu = () => {
         </div>
         <div className='settings-container-bottom'>
           {currentState.randomizeAllTimeout ? (
-            <button className='randomize-all-button'>
+            <button
+              className='randomize-all-button'
+              data-testid='randomizationButton'>
               Wait, Randomizing...
               <img src={dice} className='dice'></img>
             </button>
           ) : (
-            <button className='randomize-all-button' onClick={randomizeAll}>
+            <button
+              className='randomize-all-button'
+              onClick={randomizeAll}
+              data-testid='randomizationButton'>
               Randomize everything!
               <img src={dice} className='dice'></img>
             </button>

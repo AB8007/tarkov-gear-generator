@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { SettingsMenu } from '../RenderUIElements/SettingsMenu';
-import { RenderMap } from '../RenderUIElements/RenderMap';
+import { RenderMap } from '../RenderItems/Other/RenderMap';
 import { useDispatch } from 'react-redux';
 import { initializeHeadwear } from '../../reducers/headwearReducer';
 import { initializeHeadphones } from '../../reducers/headphonesReducer';
@@ -9,7 +9,6 @@ import { initializeBodyarmors } from '../../reducers/bodyarmorReducer';
 import { initializeChestrigs } from '../../reducers/chestrigReducer';
 import { initializeMaps } from '../../reducers/mapReducer';
 import { initializeSecondaries } from '../../reducers/secondaryReducer';
-
 import { useQuery } from '@apollo/client';
 import { GET_DATA } from '../../queries';
 import { Wearables } from '../RenderItems/Wearables/Wearables';

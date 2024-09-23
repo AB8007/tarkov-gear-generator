@@ -1,7 +1,7 @@
 import { RenderWeapons } from './RenderWeapons';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { expect } from 'vitest';
+import { expect, test } from 'vitest';
 import configureMockStore from 'redux-mock-store';
 
 const mockStore = configureMockStore();
@@ -28,6 +28,6 @@ test('Weapons component is rendered on page load', async () => {
       <RenderWeapons />
     </Provider>,
   );
-  expect(await screen.findByText('No Primary Weapon')).toBeInTheDocument();
-  expect(await screen.findByText('No Sidearm')).toBeInTheDocument();
+  expect(await screen.findByText('No Primary Weapon')).toBeVisible();
+  expect(await screen.findByText('No Sidearm')).toBeVisible();
 });
