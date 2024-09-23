@@ -57,6 +57,6 @@ export const RenderSmallItem = ({ category, name, image }) => {
 
 RenderSmallItem.propTypes = {
   category: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  image: PropTypes.string,
 };

@@ -12,9 +12,15 @@ The application is hosted [here](https://tarkov-gear-generator.onrender.com/).
 
 **Basic Functionality**
 
-The data required is fetched from the API upon page load and saved into global state. The app has functions for randomizing an item from each category. Randomization of each item is initiated by the user by pressing a button. The logic for randomization is as follows: a list containing all the items from the category is passed to the function from the global state and a random item with an index ranging from 0 to length value of the said list is saved into a global state and rendered in the UI.
+The data required is fetched from a GraphQL API at page load and saved into global state. The app has functions for randomizing an item from each category. Randomization of each item is initiated by the user pressing a button. The logic for randomization is as follows: a list containing all the items from the category is passed to the function from the global state and a random item with an index ranging from 0 to length value of the said list is saved into a global state and rendered in the UI.
+
+Because the API does not have the possibility to query for random indexed items, the only choice was to query for all the items at once. This makes the initial page load take some time on really slow internet speeds. If it was possible, another way would be to make a new query each time the button is clicked.
 
 The user can alter the randomization process should they want, for example by forcing a fitting pair of headphones and headwear.
+
+**Testing & CI/CD**
+
+Unit testing for components is done with Vitest and React Testing Library. E2E will be done using Playwright. Github Actions will be used for automated testing and deployment on Render.
 
 **The API?**
 
