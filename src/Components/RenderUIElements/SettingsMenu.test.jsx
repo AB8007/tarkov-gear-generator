@@ -24,12 +24,12 @@ test('Settings menu is rendered', async () => {
   const armorCompatibilitySetting = within(settingsContainer[1]);
 
   expect(
-    headsetCompatibilitySetting.getByText('Ensure headset compatibility'),
+    headsetCompatibilitySetting.getByText('Force headset compatibility'),
   ).toBeVisible();
   expect(headsetCompatibilitySetting.getByRole('checkbox')).toBeVisible();
 
   expect(
-    armorCompatibilitySetting.getByText('Ensure bodyarmor compatibility'),
+    armorCompatibilitySetting.getByText('Force armor and rig combination'),
   ).toBeVisible();
   expect(armorCompatibilitySetting.getByRole('checkbox')).toBeVisible();
 

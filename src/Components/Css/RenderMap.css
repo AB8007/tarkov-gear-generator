@@ -43,7 +43,6 @@
 }
 
 .map-name-container {
-  font-size: 2.5vw;
   position: relative;
   display: flex;
   justify-content: center;
@@ -65,7 +64,7 @@
   border: 0.1vw #8d8d8d solid;
   backdrop-filter: blur(10px);
   box-sizing: border-box;
-  font-size: 0.8vw;
+  font-size: 2.5vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,17 +72,19 @@
   -webkit-text-stroke-color: #f5f5f5;
 }
 
-@media screen and (max-width: 960px) {
+@media only screen and (max-width: 960px) {
   .map-container {
-    width: 91.5vw;
-    margin-left: 4.5vw;
+    width: 92vw;
+    margin-left: 4vw;
     height: 27vw;
     margin-top: 4vw;
+    margin-bottom: 2em;
   }
   .map-image-container,
   .no-map-to-show {
     margin-top: 0.4vw;
     height: 22.5vw;
+    font-size: 2.5vw;
   }
   .map-name-container {
     font-size: 8vw;
@@ -96,7 +97,7 @@
   }
   .map-title-container {
     height: 4vw;
-    width: 91.5vw;
+    width: 92vw;
     font-size: 2.5vw;
   }
 }

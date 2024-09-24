@@ -67,10 +67,10 @@
   -webkit-text-stroke-color: #f5f5f5;
 }
 
-@media screen and (max-width: 960px) {
+@media only screen and (max-width: 960px) {
   .primary-container {
-    width: 57.5vw;
-    margin-left: 4.5vw;
+    width: 58vw;
+    margin-left: 4vw;
     height: 31vw;
   }
   .primary-icon-container,
@@ -81,7 +81,7 @@
   }
   .primary-title-container {
     height: 4vw;
-    width: 57.5vw;
+    width: 58vw;
     font-size: 2.5vw;
   }
   .primary-name-container {

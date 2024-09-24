@@ -52,7 +52,7 @@ export const SettingsMenu = () => {
         <div className='settings-container-middle'>
           <div className='settings-left'>
             <div className='checkbox-container' data-testid='settingCheckbox'>
-              Ensure headset compatibility
+              Force headset compatibility
               <input
                 type='checkbox'
                 onChange={handleHeadphoneBlockCheckbox}></input>
@@ -60,7 +60,7 @@ export const SettingsMenu = () => {
           </div>
           <div className='settings-left'>
             <div className='checkbox-container' data-testid='settingCheckbox'>
-              Ensure bodyarmor compatibility
+              Force armor and rig combination
               <input
                 type='checkbox'
                 onChange={handleArmorCheckboxValue}></input>
