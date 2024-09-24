@@ -33,7 +33,7 @@ The user can also alter the randomization process, for example, forcing a fittin
 
 - **Unit Testing**: Done with **Vitest** and **React Testing Library**.
 - **E2E Testing**: Will be done using **Playwright**.
-- **CI/CD**: Automated testing and deployment will be handled through **Github Actions** with deployment on **Render**.
+- **CI/CD**: Automated testing and deployment is handled through **Github Actions** pipeline with deployment on **Render**. 
 
 ---
 
