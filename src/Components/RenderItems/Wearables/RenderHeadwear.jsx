@@ -8,6 +8,7 @@ export const RenderHeadwear = () => {
       {randomizedHeadwear && (
         <RenderSmallItem
           category={'headWear'}
+          longName={randomizedHeadwear.longName}
           name={randomizedHeadwear.name}
           image={randomizedHeadwear.image}
         />

@@ -8,6 +8,7 @@ export const RenderChestRig = () => {
       {randomizedChestrig && (
         <RenderSmallItem
           category={'chestRig'}
+          longName={randomizedChestrig.longName}
           name={randomizedChestrig.name}
           image={randomizedChestrig.image}
         />

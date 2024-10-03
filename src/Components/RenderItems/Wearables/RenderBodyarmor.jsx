@@ -8,6 +8,7 @@ export const RenderBodyarmor = () => {
       {randomizedBodyarmor && (
         <RenderSmallItem
           category={'bodyArmor'}
+          longName={randomizedBodyarmor.longName}
           name={randomizedBodyarmor.name}
           image={randomizedBodyarmor.image}
         />

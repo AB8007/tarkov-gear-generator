@@ -8,6 +8,7 @@ export const RenderHeadphones = () => {
     <div className='headset-container'>
       <RenderSmallItem
         category={'headPhones'}
+        longName={randomizedHeadphones.longName}
         name={randomizedHeadphones.name}
         image={randomizedHeadphones.image}
       />

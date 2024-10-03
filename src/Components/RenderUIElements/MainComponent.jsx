@@ -12,10 +12,12 @@ export const MainComponent = () => {
   const { data, loading, error, refetch } = useQuery({
     queryKey: ['randomItems'],
     queryFn: getItems,
+    refetchOnWindowFocus: false,
   });
 
   useEffect(() => {
     if (data) {
+      console.log(data);
       setItemsToState(data);
     }
   }, [data, setItemsToState]);
@@ -30,9 +32,12 @@ export const MainComponent = () => {
       ) : (
         <div className='main-container'>
           <Menu refetch={refetch} />
+
           <Wearables />
           <RenderWeapons />
-          <div className='map-container'></div>
+          <div className='map-container'>
+            <RenderMap />
+          </div>
         </div>
       )}
       {error ? <div className='loading-container'>{error.message}</div> : null}

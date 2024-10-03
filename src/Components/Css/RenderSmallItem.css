@@ -24,6 +24,7 @@
     rgba(22, 23, 22, 1) 81%,
     rgba(38, 38, 38, 1) 100%
   );
+  text-transform: uppercase;
 }
 
 .small-item-icon-container,

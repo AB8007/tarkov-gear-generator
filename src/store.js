@@ -26,29 +26,7 @@ const useItemsStore = create((set) => ({
   secondary: initialState,
   map: {
     name: null,
-    imageId: null,
-  },
-
-  imageLoadedStatus: {
-    headWear: false,
-    headPhones: false,
-    chestRig: false,
-    bodyArmor: false,
-    primary: false,
-    secondary: false,
-  },
-
-  setLoadedState: (prop, val) =>
-    set((state) => ({
-      imageLoadedStatus: {
-        ...state.imageLoadedStatus,
-        [prop]: val,
-      },
-    })),
-
-  areAllImagesLoaded: () => {
-    const { imageLoadedStatus } = useItemsStore.getState();
-    return Object.values(imageLoadedStatus).every((status) => status === true);
+    mapId: null,
   },
 
   setItems: ({ data }) => {
@@ -68,7 +46,7 @@ const useItemsStore = create((set) => ({
       headWear: setData(data.headwear),
       primary: setData(data.primary),
       secondary: setData(data.secondary),
-      map: setData(data.map),
+      map: { name: data.map.name, mapId: data.map.id },
     });
   },
 }));

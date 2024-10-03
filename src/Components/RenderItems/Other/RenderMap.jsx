@@ -1,20 +1,18 @@
 import { useEffect, useState } from 'react';
 import '../../Css/RenderMap.css';
+import useItemsStore from '../../../store';
 
-export const RenderMap = ({ randomMap }) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
+export const RenderMap = () => {
+  const [loadingState, setLoadingState] = useState(false);
+  const randomMap = useItemsStore((state) => state.map);
   useEffect(() => {
-    setImageLoaded(false);
-    const img = new Image();
-    img.onload = () => {
-      if (timeout === false) {
-        setImageLoaded(true);
-        return;
-      }
-    };
-    img.src = randomMap.image;
-  }, [randomMap.image, timeout]);
+    setLoadingState(false);
+  }, [randomMap.mapId]);
+
+  const handleImageLoad = () => {
+    setLoadingState(true);
+  };
+  console.log(randomMap.name, randomMap.mapId);
 
   return (
     <>
@@ -23,14 +21,14 @@ export const RenderMap = ({ randomMap }) => {
         {randomMap.name ? (
           <div>
             <div className='map-image-container'>
-              {!imageLoaded ? (
-                <div className='loading-animation'></div>
-              ) : (
-                <img src={randomMap.image} className='map-thumbnail'></img>
-              )}
+              {!loadingState && <div className='loading-animation'></div>}
+              <img
+                src={`/images/maps/${randomMap.mapId}.png`}
+                className='map-thumbnail'
+                onLoad={handleImageLoad}></img>
             </div>
             <div className='map-name-container'>
-              {!imageLoaded ? null : (
+              {!loadingState ? null : (
                 <p className='map-title'>{randomMap.name}</p>
               )}
             </div>

@@ -52,6 +52,7 @@
   align-items: center;
   border: 0.1vw solid #b6b6b6;
   box-sizing: border-box;
+  text-transform: uppercase;
 }
 
 .pistol-name-container {
