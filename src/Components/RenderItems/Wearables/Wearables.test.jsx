@@ -42,10 +42,10 @@ test('Wearable-item components are rendered', () => {
       <Wearables />
     </Provider>,
   );
-  expect(screen.getByText('Headwear')).toBeVisible();
-  expect(screen.getByText('Headset')).toBeVisible();
-  expect(screen.getByText('Face Cover')).toBeVisible();
-  expect(screen.getByText('Backpack')).toBeVisible();
-  expect(screen.getByText('Chest Rig')).toBeVisible();
-  expect(screen.getByText('Body Armor')).toBeVisible();
+  expect(screen.getByText('headWear')).toBeVisible();
+  expect(screen.getByText('headPhones')).toBeVisible();
+  expect(screen.getByText('facecover')).toBeVisible();
+  expect(screen.getByText('backpack')).toBeVisible();
+  expect(screen.getByText('chestRig')).toBeVisible();
+  expect(screen.getByText('bodyArmor')).toBeVisible();
 });
