@@ -13,7 +13,7 @@ export const RenderRandomPrimary = () => {
   const handleImageLoad = () => {
     setLoadingState(true);
   };
-  console.log('state:', loadingState);
+
   return (
     <div className='primary-container'>
       <div className='primary-title-container'>Primary</div>

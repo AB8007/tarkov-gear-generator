@@ -10,7 +10,7 @@ export const RenderSmallItem = ({ category, name, longName, image }) => {
   const handleImageLoad = () => {
     setLoadingState(true);
   };
-  console.log(longName);
+
   return (
     <div className='small-item-container'>
       <div className='small-item-title-container'>{category}</div>

@@ -12,7 +12,6 @@ export const RenderMap = () => {
   const handleImageLoad = () => {
     setLoadingState(true);
   };
-  console.log(randomMap.name, randomMap.mapId);
 
   return (
     <>
