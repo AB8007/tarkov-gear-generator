@@ -1,20 +1,13 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
-import store from './store';
-import { Provider } from 'react-redux';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const client = new ApolloClient({
-  uri: 'https://api.tarkov.dev/graphql',
-  cache: new InMemoryCache(),
-});
-
+const client = new QueryClient();
 root.render(
-  <Provider store={store}>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
-  </Provider>,
+  <QueryClientProvider client={client}>
+    <App />
+  </QueryClientProvider>,
 );

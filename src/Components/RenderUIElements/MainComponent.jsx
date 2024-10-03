@@ -1,44 +1,26 @@
-import { useEffect } from 'react';
-import { SettingsMenu } from '../RenderUIElements/SettingsMenu';
+import { Menu } from '../RenderUIElements/Menu';
 import { RenderMap } from '../RenderItems/Other/RenderMap';
-import { useDispatch } from 'react-redux';
-import { initializeHeadwear } from '../../reducers/headwearReducer';
-import { initializeHeadphones } from '../../reducers/headphonesReducer';
-import { initializePrimaries } from '../../reducers/primaryReducer';
-import { initializeBodyarmors } from '../../reducers/bodyarmorReducer';
-import { initializeChestrigs } from '../../reducers/chestrigReducer';
-import { initializeMaps } from '../../reducers/mapReducer';
-import { initializeSecondaries } from '../../reducers/secondaryReducer';
-import { useQuery } from '@apollo/client';
-import { GET_DATA } from '../../queries';
 import { Wearables } from '../RenderItems/Wearables/Wearables';
 import { RenderWeapons } from '../RenderItems/Weapons/RenderWeapons';
+import { getItems } from '../../api/api';
+import { useQuery } from '@tanstack/react-query';
+import useItemsStore from '../../store';
+import { useEffect } from 'react';
 
 export const MainComponent = () => {
-  const dispatch = useDispatch();
-
-  const { data, loading, error } = useQuery(GET_DATA);
+  const setItemsToState = useItemsStore((state) => state.setItems);
+  const { data, loading, error, refetch } = useQuery({
+    queryKey: ['randomItems'],
+    queryFn: getItems,
+    refetchOnWindowFocus: false,
+  });
 
   useEffect(() => {
-    if (
-      data &&
-      data.primaries &&
-      data.secondaries &&
-      data.headwear &&
-      data.headphones &&
-      data.bodyarmors &&
-      data.chestrigs &&
-      data.maps
-    ) {
-      dispatch(initializePrimaries(data.primaries));
-      dispatch(initializeSecondaries(data.secondaries));
-      dispatch(initializeHeadwear(data.headwear));
-      dispatch(initializeBodyarmors(data.bodyarmors));
-      dispatch(initializeChestrigs(data.chestrigs));
-      dispatch(initializeHeadphones(data.headphones));
-      dispatch(initializeMaps(data.maps));
+    if (data) {
+      console.log(data);
+      setItemsToState(data);
     }
-  }, [data, dispatch]);
+  }, [data, setItemsToState]);
 
   return (
     <div className='character-container'>
@@ -49,7 +31,8 @@ export const MainComponent = () => {
         </div>
       ) : (
         <div className='main-container'>
-          <SettingsMenu />
+          <Menu refetch={refetch} />
+
           <Wearables />
           <RenderWeapons />
           <div className='map-container'>

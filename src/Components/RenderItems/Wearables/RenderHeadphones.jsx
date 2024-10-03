@@ -1,12 +1,14 @@
-import { useSelector } from 'react-redux';
 import { RenderSmallItem } from './RenderSmallItem';
+import useItemsStore from '../../../store';
 
 export const RenderHeadphones = () => {
-  const { randomizedHeadphones } = useSelector((state) => state.headphones);
+  const randomizedHeadphones = useItemsStore((state) => state.headPhones);
+  console.log(randomizedHeadphones);
   return (
     <div className='headset-container'>
       <RenderSmallItem
-        category={'Headset'}
+        category={'headPhones'}
+        longName={randomizedHeadphones.longName}
         name={randomizedHeadphones.name}
         image={randomizedHeadphones.image}
       />

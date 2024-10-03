@@ -1,44 +1,48 @@
 import { useEffect, useState } from 'react';
 import '../../Css/RenderRandomPistol.css';
-import { useSelector } from 'react-redux';
+
+import useItemsStore from '../../../store';
+import { Tooltip } from 'react-tooltip';
 
 export const RenderRandomPistol = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const { randomizedSecondary } = useSelector((state) => state.secondary);
-  const timeout = useSelector((state) => state.settings.randomizeAllTimeout);
+  const randomizedSecondary = useItemsStore((state) => state.secondary);
+  const [loadingState, setLoadingState] = useState(false);
   useEffect(() => {
-    setImageLoaded(false);
-    const img = new Image();
-    img.onload = () => {
-      if (timeout === false) {
-        setImageLoaded(true);
-        return;
-      }
-    };
-    img.src = randomizedSecondary.image;
-  }, [randomizedSecondary, timeout]);
+    setLoadingState(false);
+  }, [randomizedSecondary.image]);
+
+  const handleImageLoad = () => {
+    setLoadingState(true);
+  };
 
   return (
     <div className='pistol-container'>
-      <div className='pistol-title-container'>Sidearm</div>
+      <div className='pistol-title-container'>Secondary</div>
       {randomizedSecondary.name ? (
         <>
-          <div className='pistol-icon-container'>
-            {!imageLoaded ? (
-              <div className='loading-animation'></div>
-            ) : (
+          <a
+            data-tooltip-id='itemTooltip'
+            data-tooltip-content={randomizedSecondary.longName}
+            data-tooltip-place='top'>
+            <div className='pistol-icon-container'>
+              {!loadingState && <div className='loading-animation'></div>}
+              <Tooltip id='itemTooltip' />
+
               <img
+                style={{ display: !loadingState ? 'none' : 'block' }}
                 className='pistol-icon'
-                src={randomizedSecondary.image}></img>
-            )}
-          </div>
-          {!imageLoaded ? (
-            <div className='pistol-name-container'>Randomizing...</div>
-          ) : (
-            <div className='pistol-name-container'>
-              {randomizedSecondary.name}
+                src={randomizedSecondary.image}
+                onLoad={handleImageLoad}
+              />
             </div>
-          )}
+            {!loadingState ? (
+              <div className='pistol-name-container'>Randomizing...</div>
+            ) : (
+              <div className='pistol-name-container'>
+                {randomizedSecondary.name}
+              </div>
+            )}
+          </a>
         </>
       ) : (
         <div className='no-pistol-to-show'>No Sidearm</div>

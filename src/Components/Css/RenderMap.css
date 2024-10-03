@@ -40,6 +40,7 @@
   color: whitesmoke;
   font-size: 1vw;
   width: 27.3vw;
+  text-transform: uppercase;
 }
 
 .map-name-container {
