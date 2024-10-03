@@ -1,38 +1,33 @@
 import { useEffect, useState } from 'react';
 import '../../Css/RenderRandomPistol.css';
-import { useSelector } from 'react-redux';
+
+import useItemsStore from '../../../store';
 
 export const RenderRandomPistol = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const { randomizedSecondary } = useSelector((state) => state.secondary);
-  const timeout = useSelector((state) => state.settings.randomizeAllTimeout);
+  const randomizedSecondary = useItemsStore((state) => state.secondary);
+  const [loadingState, setLoadingState] = useState(false);
   useEffect(() => {
-    setImageLoaded(false);
-    const img = new Image();
-    img.onload = () => {
-      if (timeout === false) {
-        setImageLoaded(true);
-        return;
-      }
-    };
-    img.src = randomizedSecondary.image;
-  }, [randomizedSecondary, timeout]);
+    setLoadingState(false);
+  }, [randomizedSecondary.image]);
+
+  const handleImageLoad = () => {
+    setLoadingState(true);
+  };
 
   return (
     <div className='pistol-container'>
-      <div className='pistol-title-container'>Sidearm</div>
+      <div className='pistol-title-container'>Secondary</div>
       {randomizedSecondary.name ? (
         <>
           <div className='pistol-icon-container'>
-            {!imageLoaded ? (
-              <div className='loading-animation'></div>
-            ) : (
-              <img
-                className='pistol-icon'
-                src={randomizedSecondary.image}></img>
-            )}
+            {!loadingState && <div className='loading-animation'></div>}
+            <img
+              style={{ display: !loadingState ? 'none' : 'block' }}
+              className='pistol-icon'
+              src={randomizedSecondary.image}
+              onLoad={handleImageLoad}></img>
           </div>
-          {!imageLoaded ? (
+          {!loadingState ? (
             <div className='pistol-name-container'>Randomizing...</div>
           ) : (
             <div className='pistol-name-container'>

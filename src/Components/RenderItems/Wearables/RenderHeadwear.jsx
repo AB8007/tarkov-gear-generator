@@ -1,15 +1,17 @@
-import { useSelector } from 'react-redux';
 import { RenderSmallItem } from './RenderSmallItem';
+import useItemsStore from '../../../store';
 
 export const RenderHeadwear = () => {
-  const { randomizedHeadwear } = useSelector((state) => state.headwear);
+  const randomizedHeadwear = useItemsStore((state) => state.headWear);
   return (
     <div className='headwear-container'>
-      <RenderSmallItem
-        category={'Headwear'}
-        name={randomizedHeadwear.name}
-        image={randomizedHeadwear.image}
-      />
+      {randomizedHeadwear && (
+        <RenderSmallItem
+          category={'headWear'}
+          name={randomizedHeadwear.name}
+          image={randomizedHeadwear.image}
+        />
+      )}
     </div>
   );
 };

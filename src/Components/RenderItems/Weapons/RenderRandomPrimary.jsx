@@ -1,43 +1,40 @@
 import { useEffect, useState } from 'react';
 import '../../Css/RenderRandomPrimary.css';
-import { useSelector } from 'react-redux';
+import useItemsStore from '../../../store';
 
 export const RenderRandomPrimary = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const timeout = useSelector((state) => state.settings.randomizeAllTimeout);
-  const { randomizedPrimary } = useSelector((state) => state.primary);
-  useEffect(() => {
-    setImageLoaded(false);
-    const img = new Image();
-    img.onload = () => {
-      if (timeout === false) {
-        setImageLoaded(true);
-        return;
-      }
-    };
-    img.src = randomizedPrimary.image;
-  }, [randomizedPrimary, timeout]);
+  const randomizedPrimary = useItemsStore((state) => state.primary);
+  const [loadingState, setLoadingState] = useState(false);
 
+  useEffect(() => {
+    setLoadingState(false);
+  }, [randomizedPrimary.image]);
+
+  const handleImageLoad = () => {
+    setLoadingState(true);
+  };
+  console.log('state:', loadingState);
   return (
     <div className='primary-container'>
       <div className='primary-title-container'>Primary</div>
       {randomizedPrimary.name ? (
-        <div>
+        <>
           <div className='primary-icon-container'>
-            {!imageLoaded ? (
-              <div className='loading-animation'></div>
-            ) : (
-              <img className='primary-icon' src={randomizedPrimary.image}></img>
-            )}
+            {!loadingState && <div className='loading-animation'></div>}
+            <img
+              style={{ display: !loadingState ? 'none' : 'block' }}
+              className='primary-icon'
+              src={randomizedPrimary.image}
+              onLoad={handleImageLoad}></img>
           </div>
-          {!imageLoaded ? (
+          {!loadingState ? (
             <div className='primary-name-container'>Randomizing...</div>
           ) : (
             <div className='primary-name-container'>
               {randomizedPrimary.name}
             </div>
           )}
-        </div>
+        </>
       ) : (
         <div className='no-primary-to-show'>No Primary Weapon</div>
       )}

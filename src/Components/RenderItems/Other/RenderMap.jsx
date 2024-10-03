@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import '../../Css/RenderMap.css';
-import { useSelector } from 'react-redux';
 
-export const RenderMap = () => {
+export const RenderMap = ({ randomMap }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
-  const timeout = useSelector((state) => state.settings.randomizeAllTimeout);
-  const { randomMap } = useSelector((state) => state.map);
+
   useEffect(() => {
     setImageLoaded(false);
     const img = new Image();
